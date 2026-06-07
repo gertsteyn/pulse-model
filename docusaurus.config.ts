@@ -23,10 +23,11 @@ type SidebarGeneratorArgs = {
   defaultSidebarItemsGenerator: (args: SidebarGeneratorArgs) => SidebarItem[] | Promise<SidebarItem[]>;
 };
 
-const orgName = process.env.ORG_NAME || 'gastownhall';
-const projectName = process.env.PROJECT_NAME || 'science';
-const siteUrlEnv = process.env.SITE_URL || 'https://example.com';
+const orgName = process.env.ORG_NAME || 'gertsteyn';
+const projectName = process.env.PROJECT_NAME || 'pulse-model';
+const siteUrlEnv = process.env.SITE_URL || `https://${orgName}.github.io/${projectName}`;
 const repoRoot = process.cwd();
+const primaryResearchDir = 'pulse_model';
 
 const supportDirs = new Set([
   'build',
@@ -38,10 +39,15 @@ const supportDirs = new Set([
 function parseUrl(fullUrl: string): {origin: string; baseUrl: string} {
   try {
     const parsed = new URL(fullUrl);
-    const baseUrl = parsed.pathname.endsWith('/') ? parsed.pathname : `${parsed.pathname}/`;
+    const baseUrl =
+      parsed.pathname === '/'
+        ? `/${projectName}/`
+        : parsed.pathname.endsWith('/')
+          ? parsed.pathname
+          : `${parsed.pathname}/`;
     return {origin: parsed.origin, baseUrl};
   } catch {
-    return {origin: 'https://example.com', baseUrl: '/'};
+    return {origin: `https://${orgName}.github.io`, baseUrl: `/${projectName}/`};
   }
 }
 
@@ -91,6 +97,14 @@ function firstDocId(dir: string, files: string[]): string {
   return preferred.replace(/\.mdx?$/, '').split(path.sep).join('/');
 }
 
+function routeBasePathForDir(dir: string): string {
+  return dir === primaryResearchDir ? '/' : toKebab(dir);
+}
+
+function siteLink(site: ResearchSite): string {
+  return site.routeBasePath === '/' ? '/' : `/${site.routeBasePath}/`;
+}
+
 function discoverResearchSites(): ResearchSite[] {
   return fs
     .readdirSync(repoRoot, {withFileTypes: true})
@@ -103,7 +117,7 @@ function discoverResearchSites(): ResearchSite[] {
       id: toKebab(dir),
       dir,
       label: toTitle(dir),
-      routeBasePath: toKebab(dir),
+      routeBasePath: routeBasePathForDir(dir),
       firstDocId: firstDocId(dir, files),
     }))
     .sort((a, b) => a.label.localeCompare(b.label));
@@ -238,7 +252,7 @@ const config: Config = {
       },
       items: [
         ...researchSites.map((site) => ({
-          to: `/${site.routeBasePath}/`,
+          to: siteLink(site),
           position: 'left' as const,
           label: site.label,
         })),
@@ -251,7 +265,7 @@ const config: Config = {
           title: 'Research',
           items: researchSites.map((site) => ({
             label: site.label,
-            to: `/${site.routeBasePath}/`,
+            to: siteLink(site),
           })),
         },
       ],

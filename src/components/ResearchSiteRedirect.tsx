@@ -15,8 +15,20 @@ type Props = {
   site: ResearchSite;
 };
 
+function sitePath(site: ResearchSite): string {
+  return site.routeBasePath === '/' ? '/' : `/${site.routeBasePath}`;
+}
+
+function targetPathForSite(site: ResearchSite): string {
+  if (site.firstDocId === 'index') {
+    return sitePath(site);
+  }
+
+  return `${sitePath(site).replace(/\/$/, '')}/${site.firstDocId}`;
+}
+
 export default function ResearchSiteRedirect({site}: Props): React.ReactNode {
-  const targetPath = `/${site.routeBasePath}/${site.firstDocId}`;
+  const targetPath = targetPathForSite(site);
   const targetUrl = useBaseUrl(targetPath);
 
   return (
