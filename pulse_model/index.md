@@ -112,6 +112,7 @@ Start here for orientation, then use the two core documents:
 - [The formal Pulse Model](./pulse_model_formalization.md) gives the mathematical definitions, known-physics recovery, hypotheses, and references.
 - [The proof roadmap](./proof_sequence.md) explains the order of work, current progress, and acceptance gates.
 - [The known-physics validation report](./known_physics_validation_report.md) states what the conservative first slice currently accepts and what remains open.
+- [Promising tweaks toward new physics](./promising_tweaks.md) records the frontier paths that could turn the current diagnostics into derivations, predictions, or clean no-go results.
 
 The appendices hold focused proofs and formal targets for individual hypotheses.
 

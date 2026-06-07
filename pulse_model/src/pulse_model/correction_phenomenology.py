@@ -89,6 +89,8 @@ def preferred_projection_parameter(
     """Return the signed 05S3 preferred-projection parameter."""
 
     _require_positive("curvature_floor_per_m2", curvature_floor_per_m2)
+    _require_finite("estimate.scalar_curvature_per_m2", estimate.scalar_curvature_per_m2)
+    _require_finite("estimate.scalarization_residual_per_m2", estimate.scalarization_residual_per_m2)
     reference = max(abs(estimate.scalar_curvature_per_m2), curvature_floor_per_m2)
     signed_lambda = estimate.scalarization_residual_per_m2 / reference
     relative_size = scalarization_relative_norm(

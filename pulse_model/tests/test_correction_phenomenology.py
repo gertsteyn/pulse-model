@@ -6,6 +6,8 @@ import math
 import unittest
 
 from pulse_model import (
+    CurvatureEstimate,
+    PlaneCoverage,
     SPEED_OF_LIGHT_M_PER_S,
     constant_curvature_sectional_curvatures,
     estimate_pulse_record_curvature,
@@ -41,6 +43,40 @@ class CorrectionPhenomenologyTests(unittest.TestCase):
         self.assertAlmostEqual(parameter.relative_size, 0.5)
         self.assertEqual(parameter.sign, -1)
         self.assertEqual(parameter.classification, "preferred-projection-diagnostic")
+
+    def test_preferred_projection_parameter_rejects_nonfinite_estimate_fields(self) -> None:
+        finite_coverage = PlaneCoverage(
+            represented_planes=(),
+            missing_planes=(),
+            record_counts={},
+        )
+        nonfinite_values = (math.nan, math.inf, -math.inf)
+        for scalar_curvature in nonfinite_values:
+            with self.subTest(field="scalar_curvature_per_m2", value=scalar_curvature):
+                with self.assertRaises(ValueError):
+                    preferred_projection_parameter(
+                        CurvatureEstimate(
+                            sectional_curvatures_per_m2={},
+                            scalar_curvature_per_m2=scalar_curvature,
+                            sampled_scalar_curvature_per_m2=0.0,
+                            scalarization_residual_per_m2=1.0,
+                            anisotropic_residuals_per_m2={},
+                            plane_coverage=finite_coverage,
+                        )
+                    )
+        for scalarization_residual in nonfinite_values:
+            with self.subTest(field="scalarization_residual_per_m2", value=scalarization_residual):
+                with self.assertRaises(ValueError):
+                    preferred_projection_parameter(
+                        CurvatureEstimate(
+                            sectional_curvatures_per_m2={},
+                            scalar_curvature_per_m2=1.0,
+                            sampled_scalar_curvature_per_m2=0.0,
+                            scalarization_residual_per_m2=scalarization_residual,
+                            anisotropic_residuals_per_m2={},
+                            plane_coverage=finite_coverage,
+                        )
+                    )
 
     def test_finite_loop_parameter_propagates_scale_bound(self) -> None:
         finite_loop_bias = 6.0
