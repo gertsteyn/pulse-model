@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use or discuss this work, please cite it as below."
+title: "Pulse Model"
+type: software
+authors:
+  - family-names: "Steyn"
+    given-names: "Gert"
+url: "https://gertsteyn.github.io/pulse-model/"
+repository-code: "https://github.com/gertsteyn/pulse-model"
+license: "CC-BY-4.0 AND Apache-2.0"
