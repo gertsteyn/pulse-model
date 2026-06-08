@@ -8,7 +8,7 @@ sidebar_position: 2
 
 The Pulse Model is **not yet accepted new physics**.
 
-It is currently a structured research program with a strong conservative layer, useful diagnostics, and one clear frontier: choosing and testing a causal, conservation-respecting quantum source-response route.
+It is currently a structured research program with a strong conservative layer, useful diagnostics, and one clear frontier: finding a causal, conservation-respecting quantum source-response route that is more than a diagnostic comparator.
 
 ## Project Verdict
 
@@ -46,7 +46,7 @@ The project also has useful bounded diagnostics:
 - H4 recovers stress-energy as matter phase-response for standard matter models.
 - The geometry-action work builds conditional and diagnostic bridges toward Einstein-Hilbert-style geometry, but does not derive it from arbitrary pulse counts.
 - H5 handles conservative quantum-clock visibility and superposed pulse-history bookkeeping.
-- H6, H6S1, H6S2, and H6S3 compare possible quantum source-response families and now include ensemble-invariance and no-free-branch-variance gates, but do not yet supply the response law.
+- H6, H6S1, H6S2, H6S3, and H6S4-C compare possible quantum source-response families and now include ensemble-invariance, no-free-branch-variance, and finite stochastic pulse-potential diagnostics, but do not yet supply the response law.
 - H7 reframes vacuum phase-response conservatively, but does not solve the cosmological constant problem.
 
 The proof order and current gate status are tracked in the [roadmap](./roadmap.md).
@@ -68,7 +68,7 @@ These boundaries are deliberate. They keep the model useful even when a speculat
 
 The main blockers are:
 
-- a physical source-response law for how geometry responds to quantum pulse-history branches
+- a general conserved source-response law for how geometry responds to quantum pulse-history branches
 - a derived or measured coefficient connecting oriented pulse-loop phase to geometric action
 - a proof that any finite-loop scale is physical rather than only estimator resolution
 - gauge-invariant comparison of quantum branches with local energy and momentum accounting
@@ -78,11 +78,11 @@ Until at least one blocker is resolved, the model remains conservative and diagn
 
 ## Closest Path To Novelty
 
-The closest path is the H6 successor sequence after H6S3:
+The closest path remains the H6 successor sequence after H6S4-C:
 
-> Choose a quantum source-response route that passes the H6S1/H6S2/H6S3 gates and predicts something beyond the ensemble mean.
+> Turn a source-response diagnostic into a conserved law, or prove that the remaining H6S4 routes fail.
 
-H6S2 strengthens H6S1 by adding ensemble-decomposition invariance. H6S3 then proves the no-free-branch-variance theorem and adds a route ledger: density-only response gives no free branch variance; pointer-record or collapse-selection response needs records and conservation accounting; stochastic classical pulse geometry needs an objective causal noise law and ledgers; non-classical geometry or a mediator needs a scoped sector and recovery limit. H6S3 does not choose H6S4, and the pulse-native law remains open.
+H6S2 strengthens H6S1 by adding ensemble-decomposition invariance. H6S3 then proves the no-free-branch-variance theorem and adds a route ledger: density-only response gives no free branch variance; pointer-record or collapse-selection response needs records and conservation accounting; stochastic classical pulse geometry needs an objective causal noise law and ledgers; non-classical geometry or a mediator needs a scoped sector and recovery limit. H6S4-C tested the stochastic classical route as a finite spectral-potential response and ended as a diagnostic tool: it gives a fixed variance comparator, but not a general conserved stochastic source-response law distinct from known stochastic semiclassical gravity.
 
 That law must:
 

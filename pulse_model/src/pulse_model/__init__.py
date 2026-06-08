@@ -105,6 +105,24 @@ from .no_free_branch_variance import (
     response_moments,
     response_variance,
 )
+from .stochastic_pulse_geometry import (
+    COUPLING_TARGET_LABELS,
+    REGULATOR_PROVENANCE_LABELS,
+    STOCHASTIC_CANDIDATE_STATUS_LABELS,
+    LocalStochasticPulseSetup,
+    NoiseCouplingLedger,
+    RegulatorLedger,
+    StochasticBaselineComparisonReport,
+    StochasticCandidateClassification,
+    StochasticEnsembleComparisonReport,
+    StochasticLawDeclaration,
+    StochasticPulseGeometryReport,
+    classify_stochastic_candidate,
+    compare_stochastic_baselines,
+    compare_stochastic_responses_for_decompositions,
+    stochastic_excess_variance,
+    stochastic_pulse_geometry_response,
+)
 from .h1_toy import PulseConditionedTwoLevelModel
 from .h2_reconstruction import (
     ClockCalibration,

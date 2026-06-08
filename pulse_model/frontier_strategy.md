@@ -321,11 +321,11 @@ It is useful because it forces the next task to choose an allowed route instead 
 
 After H6S3, the model must stop adding guardrails and choose one admissible route to explore.
 
-Review-4 selects **H6S4-C: Minimal Stochastic Classical Pulse Geometry** as the next route. The reason is practical: it is the smallest move beyond diagnostics because it keeps geometry classical while asking whether objective, causal pulse-count noise can produce a fixed observable.
+Review-4 selected **H6S4-C: Minimal Stochastic Classical Pulse Geometry** as the next route. H6S4-C is now complete as a **diagnostic tool**. It defined and tested a finite spectral-potential stochastic response with a fixed excess variance comparator, but it did not supply a general conserved stochastic classical source-response law distinct from known stochastic semiclassical gravity.
 
 The other H6S4 routes remain important, but no longer as equal next candidates. Density-only response is the required conservative baseline. Pointer-record or collapse-selection response is a fallback if the stochastic route fails or exposes a record-selection requirement. Quantum pulse geometry is the main non-classical comparator if a classical stochastic route cannot carry the needed branch information.
 
-No further H6S2/H6S3-style guardrail work should be added unless H6S4-C fails and the failure must be written as a no-go result.
+No further H6S2/H6S3-style guardrail work should be added. Downstream H6 work should either map the H6S4-C diagnostic observable without promoting it, or choose a remaining H6S4 route with a real conservation-accounted law.
 
 ### H6S4-D: Density-Only Response Baseline
 
@@ -393,7 +393,7 @@ Expected result class: **controlled modification** only if it defines a concrete
 
 ### H6S4-C: Minimal Stochastic Classical Pulse Geometry
 
-This is the most direct candidate route to new physical law while keeping geometry classical.
+This route has now been tested as the first stochastic classical candidate.
 
 The idea:
 
@@ -441,9 +441,9 @@ Weakness:
 - conservation and no-signaling constraints are severe
 - coefficients must be derived or fixed before tests
 
-Expected result class: **controlled modification** only if H6S4-C supplies a concrete candidate law. If no minimal stochastic classical candidate can pass the H6S1/H6S2/H6S3 gates, the result should be **clean no-go**. If the work remains only a route ledger and does not supply a candidate, the result should be **diagnostic tool**.
+Final result class: **diagnostic tool**.
 
-Review-4 makes this the selected first H6S4 route. It must either produce a fixed excess variance, covariance, visibility-loss, or timing-jitter term before external comparison, or explain why no such minimal candidate survives.
+H6S4-C produced a fixed finite excess pulse-count variance and timing-jitter comparator, implemented it deterministically, and verified that equivalent decompositions of the same density operator give the same stochastic response. The result is not promoted because the missing assumption is a general conserved stochastic classical source-response law distinct from known stochastic semiclassical gravity.
 
 ### H6S4-Q: Quantum Pulse Geometry
 
@@ -488,15 +488,15 @@ This remains the main non-classical H6S4 comparator route. H6S3 does not choose 
 
 ## H6S5: Observable Map
 
-H6S5 should take the chosen H6S4 route and produce a concrete observable map.
+H6S5 should take the completed H6S4-C diagnostic result, or any later chosen H6S4 route, and produce a concrete observable map without promoting diagnostics to predictions.
 
 It must compare against at least these baselines:
 
 - standard quantum matter on a fixed weak-field background
 - expectation-sourced semiclassical response
 - pointer-record/decoherence bookkeeping
-- stochastic classical response if H6S4-Q is chosen
-- quantum mediator response if H6S4-C is chosen
+- H6S4-C finite stochastic diagnostic response
+- quantum mediator response if H6S4-Q is chosen later
 
 It must not compare only ensemble means.
 
@@ -595,8 +595,8 @@ The recommended order is now:
 
 1. Completed: **H6S2: Ensemble-invariant causal pulse-response kernel**
 2. Completed: **H6S3: No free branch variance theorem**
-3. **H6S4-C: Minimal stochastic classical pulse geometry** as the selected next route
-4. **H6S5: Observable map**
+3. Completed: **H6S4-C: Minimal stochastic classical pulse geometry** as a diagnostic tool
+4. **H6S5: Observable map** for the H6S4-C diagnostic comparator, without external-prediction promotion
 5. **H6S6: Coefficient and falsifiability ledger**
 6. **H6S7: External comparison**
 7. Physical finite-loop scale only if H6 predicts an invariant scale
@@ -638,11 +638,11 @@ Do not do these next:
 
 ## Current Recommendation
 
-H6S3 is complete; the next frontier should build on it, not repeat another H6 summary or add another guardrail-only H6 task.
+H6S4-C is complete; the next frontier should build on it without promoting the diagnostic comparator to a law.
 
 H6S2 establishes ensemble-decomposition invariance for admissible pulse-response kernels. H6S3 proves that physical branch pulse-count variance is not available merely from choosing one decomposition of a fixed local density operator. Branch variance now requires one of the H6S3 routes: density-only baseline with no free variance, pointer-record or collapse-selection response, stochastic classical pulse geometry, or non-classical geometry or mediator response.
 
-After review-4, the first serious novelty attempt is H6S4-C. The task is to define the smallest admissible stochastic classical pulse-response candidate that passes H6S1/H6S2/H6S3, or to prove that the minimal candidate collapses into known stochastic semiclassical gravity or fails the required ledgers.
+After review-4, the first serious novelty attempt was H6S4-C. It defined the smallest finite stochastic classical pulse-response candidate that passes the H6S1/H6S2/H6S3 decomposition and no-signaling gates, but adversarial review blocked controlled-modification promotion because the result lacks a general conservation law and is too close to known stochastic semiclassical gravity.
 
 The pulse-native law remains open.
 
