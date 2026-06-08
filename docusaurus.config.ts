@@ -317,7 +317,7 @@ const config: Config = {
           })),
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Science Research. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://senseware.com">Senseware Labs</a>.`,
     },
     prism: {
       theme: prismThemes.github,

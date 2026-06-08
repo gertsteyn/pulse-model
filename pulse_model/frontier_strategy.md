@@ -447,7 +447,7 @@ H6S4-C produced a fixed finite excess pulse-count variance and timing-jitter com
 
 ### H6S4-Q: Quantum Pulse Geometry
 
-This route says:
+This route has now been tested as the minimal non-classical mediator candidate. It says:
 
 > If pulse-count geometry can carry branch information coherently, then geometry or the mediator itself has non-classical degrees of freedom.
 
@@ -482,13 +482,15 @@ Weakness:
 - requires much more structure than H6S1/H6S2
 - conservation, gauge, and measurement rules become harder
 
-Expected result class: **controlled modification** or **conditional derivation**. It becomes **new prediction** only if it produces a fixed observable distinction from existing quantum-gravity baselines.
+Final result class: **conditional derivation**.
 
-This remains the main non-classical H6S4 comparator route. H6S3 does not choose it.
+H6S4-Q recovers ordinary finite quantum mediator structure in Pulse Model record language. It defines the source-mediator-probe state space, finite unitary couplings, joint records, probe marginals, ensemble-invariance checks, and baseline ledgers. It is useful because it makes the non-classical route executable and prevents arbitrary branch labels or hidden collapse from masquerading as response physics.
+
+The result is not promoted because it is identical to or weaker than standard linearized quantum gravity and gravitationally mediated entanglement style mediator models unless a pulse-native fixed observable is supplied. H6S4-Q does not provide a Pulse Model quantum geometry law, independent conservation ledger, regulator-independent continuum limit, or new prediction.
 
 ## H6S5: Observable Map
 
-H6S5 should take the completed H6S4-C diagnostic result, or any later chosen H6S4 route, and produce a concrete observable map without promoting diagnostics to predictions.
+H6S5 should take the completed H6S4-C diagnostic result and H6S4-Q conditional derivation result, then produce a concrete observable map without promoting diagnostics or known-framework derivations to predictions.
 
 It must compare against at least these baselines:
 
@@ -496,7 +498,7 @@ It must compare against at least these baselines:
 - expectation-sourced semiclassical response
 - pointer-record/decoherence bookkeeping
 - H6S4-C finite stochastic diagnostic response
-- quantum mediator response if H6S4-Q is chosen later
+- H6S4-Q finite quantum mediator conditional derivation
 
 It must not compare only ensemble means.
 
@@ -568,7 +570,7 @@ The rough ladder is:
 | 0 | Conservative reformulation | Achieved in H1-H5 and H7 |
 | 1 | Diagnostic framework | Achieved in H2S1, H3/05S diagnostics, 05S5, H6S1 |
 | 2 | Clean theorem/no-go | H6S2 and H6S3 achieved no-go subtheorems and H6S3 added a route ledger |
-| 3 | Controlled modification | H6S4 target |
+| 3 | Controlled modification | Not yet achieved; H6S4-C is diagnostic and H6S4-Q is conditional derivation |
 | 4 | Fixed new prediction | H6S5-H6S6 target |
 | 5 | External empirical support | After H6S7 |
 
@@ -585,7 +587,7 @@ The model is several hard gates away from new physics:
 5. comparison against existing semiclassical, stochastic, collapse, and quantum-mediator frameworks
 6. external test
 
-New physics begins at H6S4/H6S5 only if the chosen law is specific and not equivalent to existing frameworks.
+New physics begins at H6S5/H6S6 only if a chosen law is specific, conservation-accounted, and not equivalent to existing frameworks. H6S4-C and H6S4-Q did not reach that status.
 
 Accepted new physics requires H6S7 or later.
 
@@ -596,11 +598,12 @@ The recommended order is now:
 1. Completed: **H6S2: Ensemble-invariant causal pulse-response kernel**
 2. Completed: **H6S3: No free branch variance theorem**
 3. Completed: **H6S4-C: Minimal stochastic classical pulse geometry** as a diagnostic tool
-4. **H6S5: Observable map** for the H6S4-C diagnostic comparator, without external-prediction promotion
-5. **H6S6: Coefficient and falsifiability ledger**
-6. **H6S7: External comparison**
-7. Physical finite-loop scale only if H6 predicts an invariant scale
-8. Vacuum residual law only if a concrete conserved functional is proposed
+4. Completed: **H6S4-Q: Minimal quantum pulse geometry** as a conditional derivation of known quantum mediator structure
+5. **H6S5: Observable map** for the H6S4-C and H6S4-Q comparators, without external-prediction promotion
+6. **H6S6: Coefficient and falsifiability ledger**
+7. **H6S7: External comparison**
+8. Physical finite-loop scale only if H6 predicts an invariant scale
+9. Vacuum residual law only if a concrete conserved functional is proposed
 
 The reason is practical. The oriented loop phase path has already been sharpened into a diagnostic contract, spin/full-connection holonomy has been sharpened into a conservative recovery plus bounded diagnostic, and H6S1 has sharpened quantum source-response into executable weak-field gates. All three point at the same missing ingredient: a causal, conservation-respecting source-response law.
 
@@ -634,15 +637,17 @@ Do not do these next:
 - importing external bounds before the model has fixed coefficients
 - treating branch labels as physical without local pointer records or causal selection
 - treating branch-mixture variance as new physics without H6S2-H6S3 guardrails
-- creating a quantum metric Hilbert space without a scoped H6S4-Q contract
+- treating the finite H6S4-Q mediator contract as an accepted quantum metric law
 
 ## Current Recommendation
 
-H6S4-C is complete; the next frontier should build on it without promoting the diagnostic comparator to a law.
+H6S4-C and H6S4-Q are complete; the next frontier should build on them without promoting the diagnostic comparator or conditional derivation to a law.
 
 H6S2 establishes ensemble-decomposition invariance for admissible pulse-response kernels. H6S3 proves that physical branch pulse-count variance is not available merely from choosing one decomposition of a fixed local density operator. Branch variance now requires one of the H6S3 routes: density-only baseline with no free variance, pointer-record or collapse-selection response, stochastic classical pulse geometry, or non-classical geometry or mediator response.
 
 After review-4, the first serious novelty attempt was H6S4-C. It defined the smallest finite stochastic classical pulse-response candidate that passes the H6S1/H6S2/H6S3 decomposition and no-signaling gates, but adversarial review blocked controlled-modification promotion because the result lacks a general conservation law and is too close to known stochastic semiclassical gravity.
+
+After review-5, the non-classical attempt was H6S4-Q. It defined the smallest finite quantum mediator route that carries source-branch information through declared quantum correlations rather than ensemble labels. Its final result is conditional derivation: it recovers known quantum mediator structure and gravitationally mediated entanglement style comparators in Pulse Model record language, but no pulse-native law or fixed new observable survives known-framework comparison.
 
 The pulse-native law remains open.
 
@@ -652,4 +657,4 @@ The seam to pull is:
 
 If the answer is nothing, the Pulse Model remains a conservative diagnostic framework.
 
-If the answer is stochastic pulse geometry or non-classical pulse geometry, and it produces a fixed, causal, conservation-respecting observable, that is the first real step toward new physics.
+H6S4-C and H6S4-Q tested the minimal stochastic and non-classical answers. Neither produced a controlled modification. If a later answer produces a fixed, causal, conservation-respecting observable not reproduced by known baselines, that is the first real step toward new physics.

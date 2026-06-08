@@ -46,7 +46,7 @@ The project also has useful bounded diagnostics:
 - H4 recovers stress-energy as matter phase-response for standard matter models.
 - The geometry-action work builds conditional and diagnostic bridges toward Einstein-Hilbert-style geometry, but does not derive it from arbitrary pulse counts.
 - H5 handles conservative quantum-clock visibility and superposed pulse-history bookkeeping.
-- H6, H6S1, H6S2, H6S3, and H6S4-C compare possible quantum source-response families and now include ensemble-invariance, no-free-branch-variance, and finite stochastic pulse-potential diagnostics, but do not yet supply the response law.
+- H6, H6S1, H6S2, H6S3, H6S4-C, and H6S4-Q compare possible quantum source-response families and now include ensemble-invariance, no-free-branch-variance, finite stochastic pulse-potential diagnostics, and a finite quantum mediator conditional derivation, but do not yet supply the response law.
 - H7 reframes vacuum phase-response conservatively, but does not solve the cosmological constant problem.
 
 The proof order and current gate status are tracked in the [roadmap](./roadmap.md).
@@ -78,11 +78,11 @@ Until at least one blocker is resolved, the model remains conservative and diagn
 
 ## Closest Path To Novelty
 
-The closest path remains the H6 successor sequence after H6S4-C:
+The closest path remains the H6 successor sequence after H6S4-C and H6S4-Q:
 
 > Turn a source-response diagnostic into a conserved law, or prove that the remaining H6S4 routes fail.
 
-H6S2 strengthens H6S1 by adding ensemble-decomposition invariance. H6S3 then proves the no-free-branch-variance theorem and adds a route ledger: density-only response gives no free branch variance; pointer-record or collapse-selection response needs records and conservation accounting; stochastic classical pulse geometry needs an objective causal noise law and ledgers; non-classical geometry or a mediator needs a scoped sector and recovery limit. H6S4-C tested the stochastic classical route as a finite spectral-potential response and ended as a diagnostic tool: it gives a fixed variance comparator, but not a general conserved stochastic source-response law distinct from known stochastic semiclassical gravity.
+H6S2 strengthens H6S1 by adding ensemble-decomposition invariance. H6S3 then proves the no-free-branch-variance theorem and adds a route ledger: density-only response gives no free branch variance; pointer-record or collapse-selection response needs records and conservation accounting; stochastic classical pulse geometry needs an objective causal noise law and ledgers; non-classical geometry or a mediator needs a scoped sector and recovery limit. H6S4-C tested the stochastic classical route as a finite spectral-potential response and ended as a diagnostic tool: it gives a fixed variance comparator, but not a general conserved stochastic source-response law distinct from known stochastic semiclassical gravity. H6S4-Q tested the non-classical mediator route and ended as a conditional derivation: it recovers ordinary finite quantum mediator structure in Pulse Model record language, but not a pulse-native quantum geometry law or a fixed observable distinct from standard quantum mediator baselines.
 
 That law must:
 
