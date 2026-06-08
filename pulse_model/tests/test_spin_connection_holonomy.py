@@ -122,13 +122,16 @@ class SpinConnectionHolonomyTests(unittest.TestCase):
 
     def test_matrix_artifact_holonomy_subtracts_before_residual_classification(self) -> None:
         expected = spin_half_holonomy_from_rotation_vector((0.0, 0.0, 0.2))
-        artifact = spin_half_holonomy_from_rotation_vector((0.0, 0.0, 0.1))
+        artifact = spin_half_holonomy_from_rotation_vector((0.1, 0.0, 0.0))
         observed = multiply_matrix2c(multiply_matrix2c(artifact, expected), IDENTITY_SPINOR_HOLONOMY)
+        wrong_order_observed = multiply_matrix2c(expected, artifact)
 
         residual = spinor_holonomy_residual(observed, expected, artifact)
+        wrong_order_residual = spinor_holonomy_residual(wrong_order_observed, expected, artifact)
         comparison = SpinHolonomyComparison(observed, expected, artifact, area_m2=5.0)
 
         self.assertLess(spinor_holonomy_distance(residual, IDENTITY_SPINOR_HOLONOMY), 1.0e-15)
+        self.assertGreater(spinor_holonomy_distance(wrong_order_residual, IDENTITY_SPINOR_HOLONOMY), 1.0e-3)
         self.assertEqual(comparison.classification, "representation-lift-only")
         self.assertLess(comparison.residual_density_per_m2, 1.0e-15)
 

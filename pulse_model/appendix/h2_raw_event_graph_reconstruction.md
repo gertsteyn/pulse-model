@@ -498,16 +498,18 @@ Withheld from reconstruction:
 
 The tests may inspect the sidecar only after reconstruction, and only to check gauge-aware agreement or deliberate underdetermination.
 
-### 9.6 Required Generator Cases
+### 9.6 Implemented Generator Cases
 
-The initial generator must include these cases:
+The first executable generator includes these focused cases:
 
 - `single_inertial_clock`: one valid clock chain; useful for order recovery but underdetermined for geometry
-- `separated_inertial_clocks`: two nonmeeting inertial clocks with reciprocal signals; useful for null-link constraints with calibration ambiguity
-- `crossing_inertial_clocks`: two inertial clocks with one meeting event and signals before and after the meeting; useful for aligning event representatives and testing clock embeddings up to gauge
-- `flat_three_clock_network`: at least three inertial clocks with meetings or reciprocal signals; useful for a better-conditioned synthetic rank test
-- `sparse_underdetermined`: disconnected or weakly linked records that must report underdetermination instead of failure
+- `separated_inertial_clocks`: two nonmeeting inertial clocks with reciprocal signals; useful for null-link constraints and calibrated static ranging
+- `crossing_inertial_clocks`: two clock chains with one exact meeting event; useful for event-representative alignment and for confirming that a single meeting is still geometrically underdetermined
+- `flat_three_clock_network`: three calibrated static clocks with reciprocal reference-clock links and one non-reference signal; useful for a better-conditioned synthetic rank test
+- `sparse_underdetermined`: a weakly linked record that must report underdetermination instead of failure
 - `inconsistent_record`: a deliberately impossible pulse order, meeting, or signal endpoint used to test rejection
+
+The generator case label is sidecar metadata for tests. Reconstruction receives only `RawEventRecord`.
 
 ### 9.7 Generator Gauge Freedoms
 
@@ -776,6 +778,38 @@ $$
 
 Clock-line variables use the same residuals with the chain rule through $X_A(\lambda_A)$.
 
+The first executable static diagnostic uses a narrower signed $1+1$ dimensional clock-line slice. It fixes one calibrated reference clock at $x=0$ and gives each non-reference clock a fitted offset $\beta_A$ and signed distance $x_A$.
+
+Reference-clock signal rows are always linear in this slice. Non-reference signal rows are added only when the reference-clock and meeting rows already fix both endpoint distances enough to select the signed orientation branch. If that branch is not fixed, the record remains an underdetermined or mirror/orientation-ambiguous diagnostic instead of being forced into a false inconsistency.
+
+For a signal from the reference clock $R$ to clock $A$, the row is:
+
+$$
+\beta_A - x_A = \tau_R(e_s) - \tau_A(r_s)
+$$
+
+For a signal from clock $A$ to the reference clock $R$, the row is:
+
+$$
+\beta_A + x_A = \tau_R(r_s) - \tau_A(e_s)
+$$
+
+For a signal from non-reference clock $A$ to non-reference clock $B$ when $x_B>x_A$ in the chosen orientation convention, the row is:
+
+$$
+\beta_B - x_B - \beta_A + x_A = \tau_A(e_s) - \tau_B(r_s)
+$$
+
+When the reference rows fix $x_B<x_A$, the opposite branch is:
+
+$$
+\beta_B + x_B - \beta_A - x_A = \tau_A(e_s) - \tau_B(r_s)
+$$
+
+A meeting with a reference-clock event contributes only the affine offset row needed to align that event in the chosen gauge. It does not add a hidden distance row for the other clock. Without signal rows, a one-meeting pair remains rank-deficient.
+
+The nonlinear null residuals are reported only for a linearly consistent static fit with no remaining nullspace. Rank-deficient records report rank and degeneracy labels without using an arbitrary particular solution to manufacture a null-residual verdict.
+
 ### 11.5 Rank And Nullspace Report
 
 Every executable reconstruction must return:
@@ -807,7 +841,7 @@ where $r$ is the numerical rank after the stated tolerance convention. If $d_{\m
 The rank report must attach these labels when applicable:
 
 - `insufficient-clocks`: fewer than the claimed embedding dimension requires, or no reference clock exists
-- `missing-meetings`: clocks cannot be event-aligned where the embedding claim requires alignment
+- `missing-meetings`: clocks cannot be event-aligned where a future embedding claim explicitly requires alignment
 - `missing-reciprocal-signals`: only one-way links exist where the relative separation or clock offset needs a two-way check
 - `disconnected-component`: rank is reported per component and no cross-component geometry is claimed
 - `calibration-ambiguity`: clock rate or global scale is chosen by convention rather than observed calibration
@@ -815,7 +849,7 @@ The rank report must attach these labels when applicable:
 - `rank-deficient`: a non-gauge nullspace remains
 - `noisy-inconsistency`: the residual norm exceeds the stated tolerance
 
-These are diagnostic outputs, not implementation failures.
+These are diagnostic outputs, not implementation failures. The implementation-level `valid` label means the raw schema and graph validation succeeded; it can appear together with degeneracy labels such as `rank-deficient` or `calibration-ambiguity`.
 
 ### 11.7 Well-Conditioned Synthetic Slice
 
@@ -826,7 +860,7 @@ In the well-conditioned $1+1$ dimensional synthetic slice, a valid result may re
 - component-level partial order
 - calibrated affine clock parameters
 - a flat inertial clock embedding up to the stated Poincare, scale, and reflection gauge
-- future-directed null-signal satisfaction
+- future-directed null-signal satisfaction for determined static fits
 - full rank after gauge removal for the claimed variables
 
 It still does not recover:
@@ -903,7 +937,7 @@ The completed H2S1 slice recovers or reports:
 - component-level partial order from local clock order and signal incidence
 - affine clock parameters up to calibration and origin gauge
 - a gauge-fixed static $1+1$ dimensional reciprocal-signal embedding for the implemented synthetic slice
-- future-directed null-signal residual satisfaction in that slice
+- future-directed null-signal residual satisfaction for determined static fits in that slice
 - rank, nullspace, residual, and degeneracy diagnostics for sparse or weak records
 
 ### 13.3 Unresolved Degeneracies
@@ -1001,7 +1035,7 @@ The reconstruction result should report gauge-fixed choices separately from inva
 
 Every finite result must report applicable labels from this list:
 
-- `valid`: the raw schema is well formed
+- `valid`: the raw schema and graph validation succeeded; this can coexist with degeneracy labels
 - `invalid-record`: a required record field is missing or contradictory
 - `duplicate-signal`: a signal ID maps to more than one emission or reception
 - `meeting-conflict`: meeting records force incompatible event identities

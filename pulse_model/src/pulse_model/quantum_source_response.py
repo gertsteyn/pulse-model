@@ -375,15 +375,19 @@ def pulse_marginal_max_difference(
     """Return the maximum probability difference for matching pulse support."""
 
     _require_nonnegative("pulse_count_tolerance", pulse_count_tolerance)
-    first = _require_distribution("first_distribution", first_distribution)
-    second = _require_distribution("second_distribution", second_distribution)
+    first = _coalesce_distribution(
+        _require_distribution("first_distribution", first_distribution),
+        pulse_count_tolerance,
+    )
+    second = _coalesce_distribution(
+        _require_distribution("second_distribution", second_distribution),
+        pulse_count_tolerance,
+    )
     if len(first) != len(second):
         return math.inf
 
-    first_sorted = sorted(first, key=lambda point: point.pulse_count)
-    second_sorted = sorted(second, key=lambda point: point.pulse_count)
     max_difference = 0.0
-    for first_point, second_point in zip(first_sorted, second_sorted, strict=True):
+    for first_point, second_point in zip(first, second, strict=True):
         if not math.isclose(
             first_point.pulse_count,
             second_point.pulse_count,
@@ -450,6 +454,56 @@ def _require_distribution(
     if not math.isclose(total_probability, 1.0, rel_tol=1.0e-12, abs_tol=1.0e-12):
         raise ValueError(f"{name} probabilities must sum to 1")
     return points
+
+
+def _coalesce_distribution(
+    distribution: Sequence[PulseDistributionPoint],
+    pulse_count_tolerance: float,
+) -> tuple[PulseDistributionPoint, ...]:
+    """Merge finite-distribution points with indistinguishable pulse counts."""
+
+    if not distribution:
+        return ()
+
+    sorted_points = sorted(
+        (point for point in distribution if point.probability > 0.0),
+        key=lambda point: point.pulse_count,
+    )
+    if not sorted_points:
+        return ()
+    merged: list[PulseDistributionPoint] = []
+    current_probability = sorted_points[0].probability
+    current_weighted_pulse_count = sorted_points[0].pulse_count * sorted_points[0].probability
+    current_reference_pulse_count = sorted_points[0].pulse_count
+
+    for point in sorted_points[1:]:
+        if math.isclose(
+            point.pulse_count,
+            current_reference_pulse_count,
+            rel_tol=0.0,
+            abs_tol=pulse_count_tolerance,
+        ):
+            current_probability += point.probability
+            current_weighted_pulse_count += point.pulse_count * point.probability
+            if current_probability > 0.0:
+                current_reference_pulse_count = current_weighted_pulse_count / current_probability
+        else:
+            merged.append(_merged_distribution_point(current_weighted_pulse_count, current_probability))
+            current_probability = point.probability
+            current_weighted_pulse_count = point.pulse_count * point.probability
+            current_reference_pulse_count = point.pulse_count
+
+    merged.append(_merged_distribution_point(current_weighted_pulse_count, current_probability))
+    return tuple(merged)
+
+
+def _merged_distribution_point(
+    weighted_pulse_count: float,
+    probability: float,
+) -> PulseDistributionPoint:
+    if probability == 0.0:
+        return PulseDistributionPoint(0.0, 0.0)
+    return PulseDistributionPoint(weighted_pulse_count / probability, probability)
 
 
 def _require_nonempty_string(name: str, value: str) -> None:

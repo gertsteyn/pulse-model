@@ -226,7 +226,12 @@ def spinor_holonomy_residual(
     levi_civita_holonomy: Matrix2C,
     artifact_holonomy: Matrix2C = IDENTITY_SPINOR_HOLONOMY,
 ) -> Matrix2C:
-    """Return ``observed * inverse(levi_civita) * inverse(artifact)``."""
+    """Return ``observed * inverse(levi_civita) * inverse(artifact)``.
+
+    With this left-applied artifact convention, an artifact-explained record is
+    ``observed = artifact * levi_civita``. The order matters for non-commuting
+    spinor holonomies.
+    """
 
     _require_matrix2c("observed_holonomy", observed_holonomy)
     _require_matrix2c("levi_civita_holonomy", levi_civita_holonomy)

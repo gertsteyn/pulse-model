@@ -17,6 +17,8 @@ type ResearchSite = {
 
 type SidebarItem = {
   type?: string;
+  label?: string;
+  items?: SidebarItem[];
 };
 
 type SidebarGeneratorArgs = {
@@ -167,11 +169,33 @@ function researchSiteIndexPlugin({baseUrl}: LoadContext): Plugin {
 }
 
 async function rootDocsFirstSidebarItemsGenerator(args: SidebarGeneratorArgs): Promise<SidebarItem[]> {
-  const items = await args.defaultSidebarItemsGenerator(args);
+  const items = normalizeSidebarItems(await args.defaultSidebarItemsGenerator(args));
   const rootDocs = items.filter((item) => item.type === 'doc');
   const otherItems = items.filter((item) => item.type !== 'doc');
 
   return [...rootDocs, ...otherItems];
+}
+
+function normalizeSidebarItems(items: SidebarItem[]): SidebarItem[] {
+  return items.flatMap((item) => {
+    if (item.type !== 'category') {
+      return [item];
+    }
+
+    const label = item.label || '';
+    const normalizedLabel = label.toLowerCase();
+    if (normalizedLabel === 'reviews') {
+      return [];
+    }
+
+    return [
+      {
+        ...item,
+        label: normalizedLabel === 'appendix' ? 'Appendix' : item.label,
+        items: item.items ? normalizeSidebarItems(item.items) : item.items,
+      },
+    ];
+  });
 }
 
 const researchSites = discoverResearchSites();

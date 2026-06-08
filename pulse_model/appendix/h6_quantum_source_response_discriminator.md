@@ -1,7 +1,7 @@
 # Appendix: H6S1 Quantum Source-Response Discriminator
 
-**Parent hypothesis:** H6: Classical spacetime emerges from decohered pulse-history structure  
-**Status:** In progress for a weak-field quantum source-response discriminator  
+**Parent hypothesis:** H6: Classical spacetime emerges from decohered pulse-history structure
+**Status:** Completed with final project-rule classification: diagnostic tool
 **Purpose:** Turn H6 from branch bookkeeping into a bounded discriminator for what probe-clock pulse records compare against when a source is in a quantum superposition of matter or pulse-history branches.
 
 ---
@@ -159,7 +159,7 @@ The minimal input record contains:
 | `branch_label_a`, `branch_label_b` | Distinct source branch labels. | Labels may be relabeled; only relational outputs are meaningful. |
 | `probability_a`, `probability_b` | Branch probabilities. | Each must be finite and nonnegative, and the pair must sum to one. |
 | `relative_phase_rad` | Relative source-branch phase $\varphi$. | Recorded because it matters for coherent variants, but the first diagonal weak-field mixture uses only probabilities. |
-| `branch_overlap` | Reduced branch overlap magnitude, written as the absolute value of $\Gamma_{ab}$. | Must lie in $[0,1]$; used for visibility/decoherence guardrails, not as a collapse rule. |
+| `branch_overlap` | Reduced branch overlap magnitude, written as the absolute value of $\Gamma_{ab}$. | Must lie in $[0,1]$; recorded for later visibility/decoherence guardrails, not consumed by the first weak-field helper and not used as a collapse rule. |
 | `source_position_a_m`, `source_position_b_m` | One-dimensional relational source locations. | Generator or preparation inputs for the controlled arena. |
 | `probe_position_m` | One-dimensional relational probe-clock location. | Shared relational location used for both branches. |
 | `coordinate_duration_s` | Common weak-field benchmark duration $T$. | Must be nonnegative; it is a calculation parameter, not universal time ontology. |
@@ -704,7 +704,7 @@ H6S1 accepts only:
 - the H5 internal-clock visibility formula
 - the existing H6 branch-record and reduced-overlap bookkeeping
 - a controlled one-dimensional weak-field Newtonian source/probe arena
-- branch probabilities, branch labels, branch overlap, and source/probe relational positions as declared setup fields
+- branch probabilities, branch labels, branch overlap as a recorded later-guardrail field, and source/probe relational positions as declared setup fields
 - 05/05S low-energy source-to-metric reasoning only as conditional background, not as a quantum source-response law
 
 ### 13.2 Accepted Outputs
@@ -766,7 +766,7 @@ The unresolved assumptions are:
 
 ### 13.7 Verification Commands
 
-Verified in this environment with:
+Verified in this environment from `/srv/science/pulse_model`, the Python package directory, with:
 
 ```bash
 uv run python -m unittest tests.test_quantum_source_response

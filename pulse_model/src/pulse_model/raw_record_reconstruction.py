@@ -266,6 +266,94 @@ def synthesize_meeting_case(frequency_hz: float = 1.0) -> SyntheticRawCase:
     )
 
 
+def synthesize_single_clock_case(frequency_hz: float = 1.0) -> SyntheticRawCase:
+    """Return one calibrated clock chain with no geometric constraints."""
+
+    _require_positive("frequency_hz", frequency_hz)
+    clocks = (RawClock("A", frequency_hz),)
+    events = (
+        RawClockEvent("A:0", "A", 0, 0.0),
+        RawClockEvent("A:1", "A", 1, frequency_hz),
+    )
+    truth = (
+        TruthEvent("A:0", 0.0, 0.0, 0.0),
+        TruthEvent("A:1", 1.0, 0.0, 1.0),
+    )
+    return SyntheticRawCase(
+        raw_record=RawEventRecord(clocks=clocks, events=events),
+        truth_events=truth,
+        generator_case_id="single_inertial_clock",
+    )
+
+
+def synthesize_flat_three_clock_network(frequency_hz: float = 1.0) -> SyntheticRawCase:
+    """Return a three-clock static network with reference and non-reference links."""
+
+    _require_positive("frequency_hz", frequency_hz)
+    clocks = (
+        RawClock("A", frequency_hz),
+        RawClock("B", frequency_hz),
+        RawClock("C", frequency_hz),
+    )
+    events = (
+        RawClockEvent("A:emit", "A", 0, 0.0, event_role="signal_emit"),
+        RawClockEvent("A:receive_b", "A", 1, 2.0 * frequency_hz, event_role="signal_receive"),
+        RawClockEvent("A:receive_c", "A", 2, 4.0 * frequency_hz, event_role="signal_receive"),
+        RawClockEvent("B:turn", "B", 0, frequency_hz, event_role="mixed"),
+        RawClockEvent("C:turn", "C", 0, 2.0 * frequency_hz, event_role="mixed"),
+    )
+    signals = (
+        RawSignalLink("s-ab", "A", "A:emit", 0.0, "B", "B:turn", frequency_hz),
+        RawSignalLink("s-ba", "B", "B:turn", frequency_hz, "A", "A:receive_b", 2.0 * frequency_hz),
+        RawSignalLink("s-ac", "A", "A:emit", 0.0, "C", "C:turn", 2.0 * frequency_hz),
+        RawSignalLink("s-ca", "C", "C:turn", 2.0 * frequency_hz, "A", "A:receive_c", 4.0 * frequency_hz),
+        RawSignalLink("s-bc", "B", "B:turn", frequency_hz, "C", "C:turn", 2.0 * frequency_hz),
+    )
+    truth = (
+        TruthEvent("A:emit", 0.0, 0.0, 0.0),
+        TruthEvent("A:receive_b", 2.0, 0.0, 2.0),
+        TruthEvent("A:receive_c", 4.0, 0.0, 4.0),
+        TruthEvent("B:turn", 1.0, 1.0, 1.0),
+        TruthEvent("C:turn", 2.0, 2.0, 2.0),
+    )
+    return SyntheticRawCase(
+        raw_record=RawEventRecord(clocks=clocks, events=events, signals=signals),
+        truth_events=truth,
+        generator_case_id="flat_three_clock_network",
+    )
+
+
+def synthesize_sparse_underdetermined_case(frequency_hz: float = 1.0) -> SyntheticRawCase:
+    """Return a weakly linked two-clock case that must stay rank-deficient."""
+
+    case = synthesize_static_reciprocal_signal_case(distance=1.0, frequency_hz=frequency_hz)
+    return SyntheticRawCase(
+        raw_record=RawEventRecord(
+            clocks=case.raw_record.clocks,
+            events=case.raw_record.events,
+            signals=case.raw_record.signals[:1],
+        ),
+        truth_events=case.truth_events,
+        generator_case_id="sparse_underdetermined",
+    )
+
+
+def synthesize_inconsistent_record(frequency_hz: float = 1.0) -> SyntheticRawCase:
+    """Return a deliberately invalid raw record for rejection tests."""
+
+    _require_positive("frequency_hz", frequency_hz)
+    clocks = (RawClock("A", frequency_hz),)
+    events = (
+        RawClockEvent("A:0", "A", 0, frequency_hz),
+        RawClockEvent("A:1", "A", 1, 0.0),
+    )
+    return SyntheticRawCase(
+        raw_record=RawEventRecord(clocks=clocks, events=events),
+        truth_events=(),
+        generator_case_id="inconsistent_record",
+    )
+
+
 def recover_event_order(record: RawEventRecord) -> Mapping[str, tuple[str, ...]]:
     """Validate and return clock-local event order."""
 
@@ -375,22 +463,25 @@ def reconstruct_raw_event_graph(
     ordered = recover_event_order(record)
     merge = merge_meeting_events(record)
     partial_order = _partial_order(record, ordered, merge)
-    variable_names, equations = _static_signal_equations(record, reference_id)
+    variable_names, equations = _static_signal_equations(record, reference_id, tolerance)
     rank_report, solution = _rank_report_from_equations(variable_names, equations, tolerance)
-    coordinates = _fit_static_coordinates(record, reference_id, solution)
-    residuals = _null_signal_residuals(record, coordinates, tolerance)
+    has_determined_fit = rank_report.nullity == 0 and "noisy-inconsistency" not in rank_report.degeneracy_labels
+    coordinates = _fit_static_coordinates(record, reference_id, solution) if has_determined_fit else {}
+    residuals = _null_signal_residuals(record, coordinates, tolerance) if has_determined_fit else ()
 
-    labels = set(rank_report.degeneracy_labels)
+    labels = {"valid", *rank_report.degeneracy_labels}
     if len(record.clocks) < 2:
         labels.add("insufficient-clocks")
+    if len(record.clocks) >= 2:
+        labels.add("mirror-boost-ambiguity")
     if partial_order.component_count > 1:
         labels.add("disconnected-component")
     if record.signals and not _has_reciprocal_signal(record):
         labels.add("missing-reciprocal-signals")
+    if any(clock.calibration_status != "calibrated" for clock in record.clocks):
+        labels.add("calibration-ambiguity")
     if any(not residual.is_satisfied for residual in residuals):
         labels.add("noisy-inconsistency")
-    if not labels:
-        labels.add("valid")
 
     return RawReconstruction(
         ordered_event_ids_by_clock=ordered,
@@ -403,6 +494,7 @@ def reconstruct_raw_event_graph(
         consumed_observed_fields=(
             "clock_id",
             "nominal_frequency_hz",
+            "calibration_status",
             "event_id",
             "local_sequence_index",
             "pulse_count",
@@ -418,6 +510,7 @@ def reconstruct_raw_event_graph(
 def _static_signal_equations(
     record: RawEventRecord,
     reference_clock_id: str,
+    tolerance: float,
 ) -> tuple[tuple[str, ...], tuple[tuple[str, tuple[float, ...], float], ...]]:
     clocks = [clock.clock_id for clock in record.clocks if clock.clock_id != reference_clock_id]
     variable_names = tuple(
@@ -431,6 +524,7 @@ def _static_signal_equations(
     event_by_id = _event_map(record)
 
     equations: list[tuple[str, tuple[float, ...], float]] = []
+    non_reference_signals: list[tuple[RawSignalLink, RawClockEvent, RawClockEvent]] = []
     for signal in record.signals:
         emit = event_by_id[signal.emit_event_id]
         receive = event_by_id[signal.receive_event_id]
@@ -454,6 +548,8 @@ def _static_signal_equations(
                 clock_by_id[clock_id],
             )
             equations.append((signal.signal_id, tuple(row), rhs))
+        elif signal.emitter_clock_id in clocks and signal.receiver_clock_id in clocks:
+            non_reference_signals.append((signal, emit, receive))
 
     for meeting in record.meetings:
         ref_events = [
@@ -470,8 +566,6 @@ def _static_signal_equations(
                 continue
             beta_row = [0.0] * variable_count
             beta_row[variable_index[f"{event.clock_id}.beta"]] = 1.0
-            distance_row = [0.0] * variable_count
-            distance_row[variable_index[f"{event.clock_id}.distance"]] = 1.0
             equations.append(
                 (
                     f"{meeting.meeting_id}:{event.clock_id}:beta",
@@ -479,9 +573,88 @@ def _static_signal_equations(
                     ref_tau - _event_tau(event, clock_by_id[event.clock_id]),
                 )
             )
-            equations.append((f"{meeting.meeting_id}:{event.clock_id}:distance", tuple(distance_row), 0.0))
+
+    if non_reference_signals:
+        base_report, base_solution = _rank_report_from_equations(
+            variable_names,
+            tuple(equations),
+            tolerance,
+        )
+        for signal, emit, receive in non_reference_signals:
+            emitter_id = signal.emitter_clock_id
+            receiver_id = signal.receiver_clock_id
+            branch = _non_reference_signal_branch(
+                emitter_id,
+                receiver_id,
+                variable_names,
+                base_report,
+                base_solution,
+                tolerance,
+            )
+            if branch is None:
+                continue
+            row = [0.0] * variable_count
+            row[variable_index[f"{receiver_id}.beta"]] = 1.0
+            row[variable_index[f"{receiver_id}.distance"]] = -branch
+            row[variable_index[f"{emitter_id}.beta"]] -= 1.0
+            row[variable_index[f"{emitter_id}.distance"]] += branch
+            rhs = _event_tau(emit, clock_by_id[emitter_id]) - _event_tau(
+                receive,
+                clock_by_id[receiver_id],
+            )
+            equations.append((signal.signal_id, tuple(row), rhs))
 
     return variable_names, tuple(equations)
+
+
+def _non_reference_signal_branch(
+    emitter_id: str,
+    receiver_id: str,
+    variable_names: tuple[str, ...],
+    rank_report: MatrixRankReport,
+    solution: Mapping[str, float],
+    tolerance: float,
+) -> float | None:
+    if "noisy-inconsistency" in rank_report.degeneracy_labels:
+        return None
+    emitter_distance = _fixed_solution_value(
+        f"{emitter_id}.distance",
+        variable_names,
+        rank_report.nullspace_basis,
+        solution,
+        tolerance,
+    )
+    receiver_distance = _fixed_solution_value(
+        f"{receiver_id}.distance",
+        variable_names,
+        rank_report.nullspace_basis,
+        solution,
+        tolerance,
+    )
+    if emitter_distance is None or receiver_distance is None:
+        return None
+    separation = receiver_distance - emitter_distance
+    if abs(separation) <= tolerance:
+        return None
+    return 1.0 if separation > 0.0 else -1.0
+
+
+def _fixed_solution_value(
+    variable_name: str,
+    variable_names: tuple[str, ...],
+    nullspace_basis: tuple[tuple[float, ...], ...],
+    solution: Mapping[str, float],
+    tolerance: float,
+) -> float | None:
+    if variable_name not in solution:
+        return None
+    variable_index = {name: index for index, name in enumerate(variable_names)}
+    index = variable_index.get(variable_name)
+    if index is None:
+        return None
+    if any(abs(vector[index]) > tolerance for vector in nullspace_basis):
+        return None
+    return solution[variable_name]
 
 
 def _rank_report_from_equations(
@@ -676,6 +849,8 @@ def _clock_map(record: RawEventRecord) -> Mapping[str, RawClock]:
             raise ValueError("clock_id must not be empty")
         if clock.clock_id in clocks:
             raise ValueError(f"duplicate clock_id: {clock.clock_id}")
+        if not clock.calibration_status:
+            raise ValueError(f"calibration_status[{clock.clock_id}] must not be empty")
         _require_positive(f"nominal_frequency_hz[{clock.clock_id}]", clock.nominal_frequency_hz)
         _require_nonnegative(
             f"frequency_uncertainty_hz[{clock.clock_id}]",

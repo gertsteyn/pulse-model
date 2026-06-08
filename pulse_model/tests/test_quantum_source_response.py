@@ -170,6 +170,27 @@ class QuantumSourceResponseTests(unittest.TestCase):
         self.assertEqual(passed.classification, "no-signaling-passed")
         self.assertFalse(passed.rejected)
 
+    def test_no_signaling_guardrail_merges_degenerate_pulse_support(self) -> None:
+        setup = TwoBranchWeakFieldSetup(
+            probability_a=0.8,
+            source_position_a_m=2.0,
+            source_position_b_m=-2.0,
+            probe_position_m=0.0,
+            coordinate_duration_s=10.0,
+            clock_frequency_hz=5.0,
+            source_mass_kg=2.0,
+            gravitational_constant_m3_per_kg_s2=1.0,
+            speed_of_light_m_per_s=10.0,
+        )
+        z_distribution = invalid_remote_basis_toy_distribution(setup, "Z")
+        x_distribution = invalid_remote_basis_toy_distribution(setup, "X")
+        guardrail = no_signaling_guardrail("degenerate-support", z_distribution, x_distribution)
+
+        self.assertEqual(z_distribution[0].pulse_count, z_distribution[1].pulse_count)
+        self.assertEqual(x_distribution[0].pulse_count, x_distribution[1].pulse_count)
+        self.assertEqual(guardrail.max_marginal_difference, 0.0)
+        self.assertEqual(guardrail.classification, "no-signaling-passed")
+
     def test_marginal_difference_rejects_changed_support_without_causal_channel(self) -> None:
         first = (PulseDistributionPoint(1.0, 1.0),)
         second = (PulseDistributionPoint(2.0, 1.0),)
@@ -177,6 +198,19 @@ class QuantumSourceResponseTests(unittest.TestCase):
 
         self.assertEqual(pulse_marginal_max_difference(first, second), math.inf)
         self.assertEqual(guardrail.classification, "rejected-remote-basis-signaling")
+
+    def test_marginal_difference_coalesces_duplicate_support_points(self) -> None:
+        split_distribution = (
+            PulseDistributionPoint(1.0, 0.25),
+            PulseDistributionPoint(1.0, 0.75),
+            PulseDistributionPoint(2.0, 0.0),
+        )
+        one_point_distribution = (PulseDistributionPoint(1.0, 1.0),)
+
+        self.assertEqual(
+            pulse_marginal_max_difference(split_distribution, one_point_distribution),
+            0.0,
+        )
 
     def test_conservation_classifier_keeps_model_families_separate(self) -> None:
         self.assertEqual(

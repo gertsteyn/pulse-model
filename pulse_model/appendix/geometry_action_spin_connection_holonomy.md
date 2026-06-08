@@ -661,7 +661,7 @@ $$
 \mathcal{R}_{R,\mathrm{conn}}(L)=\mathcal{U}_{R,\mathrm{obs}}(L)R(\mathcal{H}_L)^{-1}\mathcal{U}_{R,\mathrm{art}}(L)^{-1}
 $$
 
-Here $\mathcal{U}_{R,\mathrm{art}}(L)$ is the ordered product of preparation, magnetic, Berry, detector, finite-loop, and instrument correction transports in the same representation. If the correction is scalar-phase-only, this equation is replaced by the scalar phase ledger from Section 4.
+Here $\mathcal{U}_{R,\mathrm{art}}(L)$ is the ordered product of preparation, magnetic, Berry, detector, finite-loop, and instrument correction transports in the same representation. This convention treats the artifact correction as left-applied before the Levi-Civita representation lift, so an artifact-explained record has $\mathcal{U}_{R,\mathrm{obs}}(L)=\mathcal{U}_{R,\mathrm{art}}(L)R(\mathcal{H}_L)$. The order matters when artifact and baseline holonomies do not commute. If the correction is scalar-phase-only, this equation is replaced by the scalar phase ledger from Section 4.
 
 For a residual close to identity:
 
@@ -820,7 +820,7 @@ Spin current is the natural source candidate for a Lorentz-connection or torsion
 All independent-connection diagnostics vanish in the conservative baseline when:
 
 $$
-\mathcal{U}_{R,\mathrm{obs}}(L)=R(\mathcal{H}_L)\mathcal{U}_{R,\mathrm{art}}(L)
+\mathcal{U}_{R,\mathrm{obs}}(L)=\mathcal{U}_{R,\mathrm{art}}(L)R(\mathcal{H}_L)
 $$
 
 $$
@@ -894,7 +894,7 @@ uv run python -m unittest tests.test_spin_connection_holonomy
 Expected result:
 
 ```text
-Ran 8 tests
+Ran 9 tests
 OK
 ```
 
@@ -1108,7 +1108,7 @@ The main blockers are:
 Focused Python verification:
 
 ```bash
-uv run python -m unittest tests.test_spin_connection_holonomy
+uv run python -m unittest tests.test_spin_connection_holonomy tests.test_spin_connection
 ```
 
 Full Python verification:
