@@ -274,11 +274,13 @@ Without this, branch-mixture variance can be an ensemble-decomposition artifact.
 
 ## H6S3: No Free Branch Variance Theorem
 
-H6S3 should come after H6S2.
+H6S3 is now complete as the immediate successor to H6S2.
 
-H6S2 blocks arbitrary ensemble-dependent response rules. H6S3 should turn that block into the central source-response trilemma.
+Its canonical result is [H6S3 No Free Branch Variance Theorem](./appendix/h6/no_free_branch_variance.md), with executable helpers in `src/pulse_model/no_free_branch_variance.py` and focused tests in `tests/test_no_free_branch_variance.py`.
 
-The theorem should say:
+H6S2 blocks arbitrary ensemble-dependent response rules. H6S3 turns that block into the central source-response route ledger.
+
+The theorem says:
 
 > In a source-superposition experiment, a probe-clock pulse distribution cannot gain physical branch variance merely because we choose a branch decomposition. Physical variance beyond ordinary measurement noise must come from one of three things: local pointer/collapse records, objectively stochastic classical pulse geometry, or non-classical pulse geometry.
 
@@ -302,18 +304,18 @@ $$
 
 Therefore branch-dependent pulse variance is not available for free.
 
-The resulting trilemma is:
+The resulting route ledger is:
 
 | Route | Meaning | Status |
 |---|---|---|
-| Density-only response | Geometry responds to $\rho$ or $\langle T_{\mu\nu}\rangle$ | Conservative baseline |
-| Pointer-record response | Branches become physical only when records exist | Diagnostic / collapse-adjacent |
-| Stochastic classical response | Geometry remains classical but gains objective noise or irreversibility | Potential controlled modification |
-| Quantum geometry response | Geometry or mediator carries branch information non-classically | Quantum-gravity route |
+| Density-only response | Geometry responds to $\rho$ or $\langle T_{\mu\nu}\rangle$ | Conservative baseline with no free branch variance |
+| Pointer-record or collapse-selection response | Branches become physical only when records or causal support exist | Diagnostic and conservation-ledger dependent |
+| Stochastic classical response | Geometry remains classical but gains objective causal noise or irreversibility | Requires a law, coefficient provenance, and conservation account |
+| Non-classical geometry or mediator response | Geometry or mediator carries branch information non-classically | Requires a scoped sector and recovery limit |
 
-H6S3's likely result class is **diagnostic tool** with a **clean no-go** subtheorem.
+H6S3's final result class is **diagnostic tool** with a separate **clean no-go** subtheorem.
 
-It becomes useful because it forces the next task to choose an allowed escape route instead of treating branch labels as physical by notation.
+It is useful because it forces the next task to choose an allowed route instead of treating branch labels as physical by notation. H6S3 does not choose H6S4 and does not supply the pulse-native response law.
 
 ## H6S4: Choose An Escape Route
 
@@ -437,7 +439,7 @@ Weakness:
 
 Expected result class: **controlled modification**. It becomes **new prediction** only if it fixes a nonzero observable effect not equivalent to known models.
 
-This is the recommended first escape route after H6S3.
+This remains a candidate first H6S4 route. H6S3 does not choose it.
 
 ### H6S4-Q: Quantum Pulse Geometry
 
@@ -478,7 +480,7 @@ Weakness:
 
 Expected result class: **controlled modification** or **conditional derivation**. It becomes **new prediction** only if it produces a fixed observable distinction from existing quantum-gravity baselines.
 
-This is the second recommended escape route after H6S3.
+This remains the main non-classical H6S4 comparator route. H6S3 does not choose it.
 
 ## H6S5: Observable Map
 
@@ -561,24 +563,23 @@ The rough ladder is:
 |---|---|---|
 | 0 | Conservative reformulation | Achieved in H1-H5 and H7 |
 | 1 | Diagnostic framework | Achieved in H2S1, H3/05S diagnostics, 05S5, H6S1 |
-| 2 | Clean theorem/no-go | H6S2 achieved a no-go subtheorem; H6S3 target remains |
+| 2 | Clean theorem/no-go | H6S2 and H6S3 achieved no-go subtheorems and H6S3 added a route ledger |
 | 3 | Controlled modification | H6S4 target |
 | 4 | Fixed new prediction | H6S5-H6S6 target |
 | 5 | External empirical support | After H6S7 |
 
-The model is probably one strong theorem away from a useful theoretical contribution:
+The model now has the useful theorem:
 
 > No branch pulse-count variance without physical records, stochastic pulse geometry, or non-classical pulse geometry.
 
 The model is several hard gates away from new physics:
 
 1. ensemble-invariance guardrail
-2. no-free-branch-variance theorem
-3. one admissible response law
-4. fixed observable consequences
-5. coefficient discipline
-6. comparison against existing semiclassical, stochastic, collapse, and quantum-mediator frameworks
-7. external test
+2. one admissible response law
+3. fixed observable consequences
+4. coefficient discipline
+5. comparison against existing semiclassical, stochastic, collapse, and quantum-mediator frameworks
+6. external test
 
 New physics begins at H6S4/H6S5 only if the chosen law is specific and not equivalent to existing frameworks.
 
@@ -589,14 +590,13 @@ Accepted new physics requires H6S7 or later.
 The recommended order is now:
 
 1. Completed: **H6S2: Ensemble-invariant causal pulse-response kernel**
-2. **H6S3: No free branch variance theorem**
-3. **H6S4-C: Minimal stochastic classical pulse-geometry candidate**
-4. **H6S4-Q: Quantum pulse-geometry comparison candidate**
-5. **H6S5: Observable map**
-6. **H6S6: Coefficient and falsifiability ledger**
-7. **H6S7: External comparison**
-8. Physical finite-loop scale only if H6 predicts an invariant scale
-9. Vacuum residual law only if a concrete conserved functional is proposed
+2. Completed: **H6S3: No free branch variance theorem**
+3. **H6S4: choose an admissible route** from the H6S3 ledger
+4. **H6S5: Observable map**
+5. **H6S6: Coefficient and falsifiability ledger**
+6. **H6S7: External comparison**
+7. Physical finite-loop scale only if H6 predicts an invariant scale
+8. Vacuum residual law only if a concrete conserved functional is proposed
 
 The reason is practical. The oriented loop phase path has already been sharpened into a diagnostic contract, spin/full-connection holonomy has been sharpened into a conservative recovery plus bounded diagnostic, and H6S1 has sharpened quantum source-response into executable weak-field gates. All three point at the same missing ingredient: a causal, conservation-respecting source-response law.
 
@@ -634,11 +634,11 @@ Do not do these next:
 
 ## Current Recommendation
 
-H6S2 is complete; the next frontier should build on it, not repeat another H6 summary.
+H6S3 is complete; the next frontier should build on it, not repeat another H6 summary.
 
-H6S2 establishes ensemble-decomposition invariance for admissible pulse-response kernels. It shows that branch-mixture response is not an admissible spacelike law merely because a branch decomposition can be written down. Branch-conditioned variance becomes a valid target only when the branch basis is supported by local pointer records, a causal selection rule, or comparison in a shared causal future.
+H6S2 establishes ensemble-decomposition invariance for admissible pulse-response kernels. H6S3 proves that physical branch pulse-count variance is not available merely from choosing one decomposition of a fixed local density operator. Branch variance now requires one of the H6S3 routes: density-only baseline with no free variance, pointer-record or collapse-selection response, stochastic classical pulse geometry, or non-classical geometry or mediator response.
 
-After H6S2, H6S3 should prove the no-free-branch-variance theorem and force the model into an explicit trilemma. After that, the first serious novelty attempt should be H6S4-C: a minimal stochastic classical pulse-geometry kernel. H6S4-Q should be developed in parallel only as the quantum-geometry comparator.
+After H6S3, the first serious novelty attempt should choose a route rather than add another guardrail. H6S4-C and H6S4-Q remain candidate routes, but H6S3 itself does not choose between density-only, record-conditioned, stochastic classical, or non-classical responses.
 
 The pulse-native law remains open.
 

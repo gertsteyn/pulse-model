@@ -78,7 +78,7 @@ The result is:
 
 ## Quantum Source-Response Rule
 
-The first quantum source-response slice is complete as H6S1, and H6S2 now adds the ensemble-invariance gate.
+The first quantum source-response slice is complete as H6S1. H6S2 adds the ensemble-invariance gate, and H6S3 adds the no-free-branch-variance theorem and route ledger.
 
 H6S1 strengthens H6 from bookkeeping into an executable diagnostic for quantum sources. It compares expectation-sourced weak-field response, branch-specific response, collapse/decoherence placeholders, and a pulse-native response-kernel contract. In the simplest weak-field setup, ensemble means are degenerate. The first possible distinction is distributional or branch-correlated: variance, bimodality, source-probe correlation, clock visibility, or timing of selection relative to a probe record.
 
@@ -88,7 +88,7 @@ The tweak is:
 
 The H6S1 verdict is **diagnostic tool**. It does not yet supply the rule named by the tweak. It supplies the weak-field source/probe calculations, artifact ledgers, conservation and no-signaling guardrails, and the clean rejection of a toy rule whose probe marginal depends on a remote basis choice without a causal channel.
 
-H6S2's verdict is also **diagnostic tool**. It strengthens H6S1 by adding ensemble-decomposition invariance: branch-mixture response is not admissible merely because a branch decomposition can be written down. Branch-conditioned variance becomes valid only with local pointer records, a causal selection rule, or comparison in a shared causal future. The pulse-native law remains open.
+H6S2's verdict is also **diagnostic tool**. It strengthens H6S1 by adding ensemble-decomposition invariance: branch-mixture response is not admissible merely because a branch decomposition can be written down. H6S3's verdict is **diagnostic tool** with a separate clean no-go subtheorem: physical branch pulse-count variance is not available merely from a chosen ensemble decomposition of the same local density operator. The H6S3 route ledger leaves H6S4 unchosen and the pulse-native law open.
 
 This remains the closest path to an experimentally distinguishable beyond-GR/QM signal if a later task can supply the missing response law. Candidate target classes remain source superpositions, quantum clocks, branch-correlated probe timing, visibility-loss probes, or gravitationally mediated entanglement style tests.
 
@@ -99,9 +99,10 @@ The hard requirements are severe:
 - no controllable faster-than-light signaling
 - a stable branch basis derived from records or environment, not chosen by convenience
 - ensemble-decomposition invariance unless records or causal selection justify branch conditioning
+- an H6S3 route choice before branch variance is treated as physical
 - a prediction beyond the ensemble mean
 
-This path should not be allowed to borrow H6, H6S1, or H6S2 as if classical-spacetime emergence or a source-response law were already solved. H6S1 makes the source-to-metric choice testable; H6S2 rejects arbitrary ensemble-dependent branch response unless local records or causal support exist.
+This path should not be allowed to borrow H6, H6S1, H6S2, or H6S3 as if classical-spacetime emergence or a source-response law were already solved. H6S1 makes the source-to-metric choice testable; H6S2 rejects arbitrary ensemble-dependent branch response unless local records or causal support exist; H6S3 rejects free physical branch variance without records, stochastic classical pulse geometry, or non-classical geometry.
 
 ## Vacuum Residual Law Or Symmetry
 
@@ -126,7 +127,7 @@ This path has the largest conceptual prize, but it is the easiest to overclaim. 
 
 The simplest useful order is:
 
-1. H6 successor work that builds on the completed H6S1 diagnostic and H6S2 ensemble-invariance gate.
+1. H6 successor work that builds on the completed H6S1 diagnostic, H6S2 ensemble-invariance gate, and H6S3 route ledger.
 2. Physical finite-loop scale only if H6 predicts an invariant scale.
 3. Vacuum residual law or symmetry only if a concrete conserved functional is proposed.
 
@@ -147,8 +148,8 @@ If a path cannot pass this gate, it may still be useful as bookkeeping, but it s
 
 ## Current Recommendation
 
-The next frontier should build on H6S2, not rerun another bookkeeping-only H6 summary.
+The next frontier should build on H6S3, not rerun another bookkeeping-only H6 summary.
 
-It should start from the completed H6S1 diagnostic and H6S2 ensemble-invariance gate. Any proposed law must define a normalized response kernel, fix coefficients before external comparison, pass no-signaling and conservation checks, name branch-basis and environment assumptions, stay invariant under arbitrary ensemble decompositions unless records or causal selection justify branch conditioning, and produce a discriminator beyond the ensemble mean.
+It should start from the completed H6S1 diagnostic, H6S2 ensemble-invariance gate, and H6S3 no-free-branch-variance route ledger. Any proposed law must define a normalized response kernel, fix coefficients before external comparison, pass no-signaling and conservation checks, name branch-basis and environment assumptions, stay invariant under arbitrary ensemble decompositions unless records or causal selection justify branch conditioning, choose an H6S3 route before treating branch variance as physical, and produce a discriminator beyond the ensemble mean.
 
 Quantum source-response remains the most direct route to a testable difference because it asks how geometry responds to quantum pulse-history branches, rather than trying to infer that response indirectly from holonomy residuals. H6S1 makes the question executable; it does not answer it as new physics.
