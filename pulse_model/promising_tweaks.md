@@ -13,7 +13,7 @@ These are not accepted results. They are frontier paths. Each path must preserve
 The current status is simple:
 
 - the Pulse Model is a strong conservative reformulation of known clock, phase, gravity, and stress-energy physics
-- the model now has useful diagnostics for curvature, scalarization, finite-loop effects, oriented loop phase, branch distinguishability, and vacuum phase-response
+- the model now has useful diagnostics for raw event-graph reconstruction, curvature, scalarization, finite-loop effects, oriented loop phase, spin/full-connection holonomy, branch distinguishability, quantum source-response, and vacuum phase-response
 - no current correction is accepted as a new-physics prediction
 - the next breakthrough must turn one diagnostic or missing assumption into a real source-response or phase-response law
 
@@ -39,7 +39,7 @@ This remains useful as the contract for future oriented-loop phase claims, but i
 
 ## Physical Finite-Loop Scale
 
-The second path is to ask whether finite-loop effects are only estimator resolution, or whether a real physical pulse-resolution scale survives.
+Another path is to ask whether finite-loop effects are only estimator resolution, or whether a real physical pulse-resolution scale survives.
 
 The current model treats finite-loop corrections as diagnostics. They are useful for saying when a record is too coarse, but they are not yet physics. To become new physics, the finite loop scale must be invariant, measurable, and fixed before comparison with observations.
 
@@ -51,37 +51,42 @@ If that is true, finite-loop corrections could map to short-distance gravity dev
 
 This path is risky. Without a derived physical scale and source-response map, it collapses into ordinary higher-curvature effective field theory with renamed coefficients. It should be pursued only after the model can say what fixes the scale and why it cannot be refined away.
 
-## Spin And Full Connection Holonomy
+## Completed Second Tweak: Spin And Full Connection Holonomy
 
-The third path is to extend the pulse-holonomy and phase-response work beyond scalar, electromagnetic, and point-particle matter.
+The second completed tweak extended the pulse-holonomy and phase-response work beyond scalar, electromagnetic, and point-particle matter.
 
-The current H4 matter-side result is accepted with limits for standard scalar, electromagnetic, and point-particle systems. It does not yet cover spinors, spin connection response, nonminimal couplings, or possible torsion-like structure.
+Before 05S5, the H4 matter-side result was accepted with limits for standard scalar, electromagnetic, and point-particle systems. It did not yet cover spinors, spin connection response, nonminimal couplings, or possible torsion-like structure.
 
 The tweak is:
 
 > Pulse phase may couple to the full local connection structure, not only to metric curvature sampled by scalar clock records.
 
-This path would ask whether spin-dependent phase transport adds an independent observable beyond the metric-only Levi-Civita picture. The clean version would stay covariant and avoid a preferred frame.
+05S5 asked whether spin-dependent phase transport adds an independent observable beyond the metric-only Levi-Civita picture, while staying covariant and avoiding a preferred frame.
 
-Possible outputs include:
+The result is:
 
-- a proof that spinor phase-response reduces cleanly to standard GR coupling
-- a constrained torsion-like or spin-connection correction
-- a no-go result showing that pulse records do not support independent connection degrees of freedom
+- standard spinor phase-response reduces cleanly to conservative tetrad and spin-connection bookkeeping
+- torsion-free spin and polarization holonomy are representation lifts of H3 frame holonomy
+- a bounded Lorentz-connection residual diagnostic is now executable after artifact ledgers
+- torsion-like claims remain unsupported without translational closure records
+- nonmetricity-like claims remain unsupported without length, angle, or inner-product drift records
+- no novel connection-phase response, coefficient rule, or source-response law is accepted
 
-This is a good frontier because it is close to known physics but probes a place where phase, local frames, and gravity meet directly.
+05S5 completed this path with the verdict **useful bounded torsion/connection diagnostic**. It is a major diagnostic level-up, but not a breakthrough into new physics. The next attempt at novelty should target the missing source-response law directly.
 
 ## Quantum Source-Response Rule
 
-The fourth path is to strengthen H6 from bookkeeping into a real response law for quantum sources.
+The first quantum source-response slice is now complete as H6S1.
 
-The current H6 result compares semiclassical expectation-sourced metrics, branch-specific classical metrics, and collapse or decoherence variants. In the simplest weak-field setup, ensemble means are degenerate. The first possible distinction is distributional or branch-correlated: variance, bimodality, or timing of selection relative to a probe record.
+H6S1 strengthens H6 from bookkeeping into an executable diagnostic for quantum sources. It compares expectation-sourced weak-field response, branch-specific response, collapse/decoherence placeholders, and a pulse-native response-kernel contract. In the simplest weak-field setup, ensemble means are degenerate. The first possible distinction is distributional or branch-correlated: variance, bimodality, source-probe correlation, clock visibility, or timing of selection relative to a probe record.
 
 The tweak is:
 
 > Geometry may respond to quantum pulse-history branches through a rule that is neither simple expectation-value sourcing nor an unconstrained collapse postulate.
 
-This is likely the closest path to an experimentally distinguishable beyond-GR/QM signal. It could target source superpositions, quantum clocks, branch-correlated probe timing, or gravitationally mediated entanglement tests.
+The H6S1 verdict is **diagnostic tool**. It does not yet supply the rule named by the tweak. It supplies the weak-field source/probe calculations, artifact ledgers, conservation and no-signaling guardrails, and the clean rejection of a toy rule whose probe marginal depends on a remote basis choice without a causal channel.
+
+This remains the closest path to an experimentally distinguishable beyond-GR/QM signal if a later task can supply the missing response law. Candidate target classes remain source superpositions, quantum clocks, branch-correlated probe timing, visibility-loss probes, or gravitationally mediated entanglement style tests.
 
 The hard requirements are severe:
 
@@ -91,11 +96,11 @@ The hard requirements are severe:
 - a stable branch basis derived from records or environment, not chosen by convenience
 - a prediction beyond the ensemble mean
 
-This path should not be allowed to borrow H6 as if classical-spacetime emergence were already solved. Its value is exactly that it makes the source-to-metric choice testable.
+This path should not be allowed to borrow H6 or H6S1 as if classical-spacetime emergence or a source-response law were already solved. H6S1's value is that it makes the source-to-metric choice testable and rejects response rules that fail the guardrails.
 
 ## Vacuum Residual Law Or Symmetry
 
-The fifth path is a constrained H7 successor.
+Another path is a constrained H7 successor.
 
 The current H7 result is only a conservative reformulation: gravity couples to the metric variation of the renormalized effective action. A fitted cosmological constant is not a solution, and calling vacuum energy "phase-response" does not by itself explain the observed scale.
 
@@ -116,12 +121,11 @@ This path has the largest conceptual prize, but it is the easiest to overclaim. 
 
 The simplest useful order is:
 
-1. Spin and full connection holonomy.
-2. Quantum source-response.
-3. Physical finite-loop scale.
-4. Vacuum residual law or symmetry.
+1. Quantum source-response law successor, using the H6S1 diagnostic gates.
+2. Physical finite-loop scale.
+3. Vacuum residual law or symmetry.
 
-The reason is practical. The oriented loop phase path has already been sharpened into a diagnostic contract. Spin and connection work now extends the phase/holonomy machinery without needing cosmology. Quantum source-response can then use the stronger phase and source machinery. Finite-loop and vacuum routes should wait until the model has a better way to distinguish physical response from estimator artifacts and fitted parameters.
+The reason is practical. The oriented loop phase path has already been sharpened into a diagnostic contract, spin/full-connection holonomy has been sharpened into a conservative recovery plus bounded diagnostic, and H6S1 has sharpened quantum source-response into executable weak-field gates. All three point at the same missing ingredient: a causal, conservation-respecting source-response law. Finite-loop and vacuum routes should wait unless the next proposal can distinguish physical response from estimator artifacts and fitted parameters.
 
 ## Novelty Gate
 
@@ -138,8 +142,8 @@ If a path cannot pass this gate, it may still be useful as bookkeeping, but it s
 
 ## Current Recommendation
 
-The next frontier should be spin and full connection holonomy.
+The next frontier should be a quantum source-response law successor, not another bookkeeping-only H6 summary.
 
-It is the cleanest successor to the completed 05S4 result. 05S4 showed that oriented phase claims need a real operational phase readout and artifact ledger before they can become geometry. Spin and full connection holonomy asks whether phase transport has additional operational structure beyond scalar clock records and metric-only Levi-Civita curvature, while staying close to known physics.
+It should start from the completed H6S1 diagnostic. Any proposed law must define a normalized response kernel, fix coefficients before external comparison, pass no-signaling and conservation checks, name branch-basis and environment assumptions, and produce a discriminator beyond the ensemble mean.
 
-If it succeeds, the Pulse Model may gain a sharper phase/connection input for geometry and matter coupling. If it fails cleanly, the project will know that the oriented-phase diagnostic should remain a guardrail rather than a derivation engine.
+Quantum source-response remains the most direct route to a testable difference because it asks how geometry responds to quantum pulse-history branches, rather than trying to infer that response indirectly from holonomy residuals. H6S1 makes the question executable; it does not answer it as new physics.
