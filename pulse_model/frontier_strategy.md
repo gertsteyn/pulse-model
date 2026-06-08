@@ -321,7 +321,11 @@ It is useful because it forces the next task to choose an allowed route instead 
 
 After H6S3, the model must stop adding guardrails and choose one admissible route to explore.
 
-The choice should be made explicitly. Each route has a different route to novelty and a different failure mode.
+Review-4 selects **H6S4-C: Minimal Stochastic Classical Pulse Geometry** as the next route. The reason is practical: it is the smallest move beyond diagnostics because it keeps geometry classical while asking whether objective, causal pulse-count noise can produce a fixed observable.
+
+The other H6S4 routes remain important, but no longer as equal next candidates. Density-only response is the required conservative baseline. Pointer-record or collapse-selection response is a fallback if the stochastic route fails or exposes a record-selection requirement. Quantum pulse geometry is the main non-classical comparator if a classical stochastic route cannot carry the needed branch information.
+
+No further H6S2/H6S3-style guardrail work should be added unless H6S4-C fails and the failure must be written as a no-go result.
 
 ### H6S4-D: Density-Only Response Baseline
 
@@ -437,9 +441,9 @@ Weakness:
 - conservation and no-signaling constraints are severe
 - coefficients must be derived or fixed before tests
 
-Expected result class: **controlled modification**. It becomes **new prediction** only if it fixes a nonzero observable effect not equivalent to known models.
+Expected result class: **controlled modification** only if H6S4-C supplies a concrete candidate law. If no minimal stochastic classical candidate can pass the H6S1/H6S2/H6S3 gates, the result should be **clean no-go**. If the work remains only a route ledger and does not supply a candidate, the result should be **diagnostic tool**.
 
-This remains a candidate first H6S4 route. H6S3 does not choose it.
+Review-4 makes this the selected first H6S4 route. It must either produce a fixed excess variance, covariance, visibility-loss, or timing-jitter term before external comparison, or explain why no such minimal candidate survives.
 
 ### H6S4-Q: Quantum Pulse Geometry
 
@@ -591,7 +595,7 @@ The recommended order is now:
 
 1. Completed: **H6S2: Ensemble-invariant causal pulse-response kernel**
 2. Completed: **H6S3: No free branch variance theorem**
-3. **H6S4: choose an admissible route** from the H6S3 ledger
+3. **H6S4-C: Minimal stochastic classical pulse geometry** as the selected next route
 4. **H6S5: Observable map**
 5. **H6S6: Coefficient and falsifiability ledger**
 6. **H6S7: External comparison**
@@ -634,11 +638,11 @@ Do not do these next:
 
 ## Current Recommendation
 
-H6S3 is complete; the next frontier should build on it, not repeat another H6 summary.
+H6S3 is complete; the next frontier should build on it, not repeat another H6 summary or add another guardrail-only H6 task.
 
 H6S2 establishes ensemble-decomposition invariance for admissible pulse-response kernels. H6S3 proves that physical branch pulse-count variance is not available merely from choosing one decomposition of a fixed local density operator. Branch variance now requires one of the H6S3 routes: density-only baseline with no free variance, pointer-record or collapse-selection response, stochastic classical pulse geometry, or non-classical geometry or mediator response.
 
-After H6S3, the first serious novelty attempt should choose a route rather than add another guardrail. H6S4-C and H6S4-Q remain candidate routes, but H6S3 itself does not choose between density-only, record-conditioned, stochastic classical, or non-classical responses.
+After review-4, the first serious novelty attempt is H6S4-C. The task is to define the smallest admissible stochastic classical pulse-response candidate that passes H6S1/H6S2/H6S3, or to prove that the minimal candidate collapses into known stochastic semiclassical gravity or fails the required ledgers.
 
 The pulse-native law remains open.
 
