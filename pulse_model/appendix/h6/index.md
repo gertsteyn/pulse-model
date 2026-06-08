@@ -6,16 +6,17 @@ sidebar_position: 1
 
 # H6 Decoherence And Source Response
 
-H6 asks whether classical spacetime can be understood as the structure left after alternative pulse histories decohere. H6S1 asks how a quantum source might source a gravitational response in a weak-field diagnostic setup.
+H6 asks whether classical spacetime can be understood as the structure left after alternative pulse histories decohere. H6S1 asks how a quantum source might source a gravitational response in a weak-field diagnostic setup. H6S2 asks whether a candidate response may depend on an arbitrary ensemble decomposition of the same local source density operator.
 
 ## Current Verdict
 
-H6 is accepted only as bounded branch-decoherence bookkeeping and model comparison. H6S1 is a useful executable quantum source-response diagnostic. Neither supplies a full classical-spacetime emergence theorem or a physical source-response law.
+H6 is accepted only as bounded branch-decoherence bookkeeping and model comparison. H6S1 is a useful executable quantum source-response diagnostic. H6S2 is a diagnostic ensemble-decomposition-invariance admissibility filter with a clean no-go subtheorem for unsupported spacelike branch response. None of these supplies a full classical-spacetime emergence theorem or a physical source-response law.
 
 ## Reading Order
 
 1. [Decohered pulse histories and classical spacetime](./decohered_pulse_histories_classical_spacetime.md)
 2. [Quantum source-response discriminator](./quantum_source_response_discriminator.md)
+3. [Causal pulse-response kernel](./causal_pulse_response_kernel.md)
 
 ## Accepted Outputs
 
@@ -23,17 +24,22 @@ H6 is accepted only as bounded branch-decoherence bookkeeping and model comparis
 - model comparison between expectation-sourced, branch-specific, collapse/decoherence, and pulse-native response families
 - weak-field source/probe diagnostic calculations
 - conservation and no-signaling guardrails for future source-response proposals
+- H6S2 ensemble-decomposition invariance guardrail for causal pulse-response proposals
+- H6S2 density-operator, pointer-record, invalid ensemble-response, and pulse-native candidate ledgers
 
 ## Rejected Overclaims
 
 - no accepted source-response law
 - no full emergence of classical spacetime
 - no permission to treat expectation-value sourcing, branch selection, or collapse placeholders as solved
+- no permission to treat branch-mixture variance as physical without local records, causal selection, or shared-future comparison
 - no controllable faster-than-light signaling rule
 
 ## Code And Tests
 
 - `src/pulse_model/calculations.py`
 - `src/pulse_model/quantum_source_response.py`
+- `src/pulse_model/causal_pulse_response.py`
 - `tests/test_h6_branch_decoherence.py`
 - `tests/test_quantum_source_response.py`
+- `tests/test_causal_pulse_response.py`

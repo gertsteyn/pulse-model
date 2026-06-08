@@ -8,7 +8,7 @@ sidebar_position: 5
 
 **Canonical page:** This compatibility path is preserved for older links. The canonical reader-facing strategy page is now [Frontier Strategy](./frontier_strategy.md).
 
-This document records the most promising ways the Pulse Model could be modified or sharpened so that it might lead to something genuinely new.
+This compatibility page is no longer the source of truth for frontier ordering. The current strategy is in [Frontier Strategy](./frontier_strategy.md); this page keeps the older summary links readable.
 
 These are not accepted results. They are frontier paths. Each path must preserve the conservative work already completed: known physics first, no hidden preferred frame, no fitted-after-the-fact coefficients, and no claim of new physics without a falsifiable observable.
 
@@ -78,7 +78,7 @@ The result is:
 
 ## Quantum Source-Response Rule
 
-The first quantum source-response slice is now complete as H6S1.
+The first quantum source-response slice is complete as H6S1, and H6S2 now adds the ensemble-invariance gate.
 
 H6S1 strengthens H6 from bookkeeping into an executable diagnostic for quantum sources. It compares expectation-sourced weak-field response, branch-specific response, collapse/decoherence placeholders, and a pulse-native response-kernel contract. In the simplest weak-field setup, ensemble means are degenerate. The first possible distinction is distributional or branch-correlated: variance, bimodality, source-probe correlation, clock visibility, or timing of selection relative to a probe record.
 
@@ -88,6 +88,8 @@ The tweak is:
 
 The H6S1 verdict is **diagnostic tool**. It does not yet supply the rule named by the tweak. It supplies the weak-field source/probe calculations, artifact ledgers, conservation and no-signaling guardrails, and the clean rejection of a toy rule whose probe marginal depends on a remote basis choice without a causal channel.
 
+H6S2's verdict is also **diagnostic tool**. It strengthens H6S1 by adding ensemble-decomposition invariance: branch-mixture response is not admissible merely because a branch decomposition can be written down. Branch-conditioned variance becomes valid only with local pointer records, a causal selection rule, or comparison in a shared causal future. The pulse-native law remains open.
+
 This remains the closest path to an experimentally distinguishable beyond-GR/QM signal if a later task can supply the missing response law. Candidate target classes remain source superpositions, quantum clocks, branch-correlated probe timing, visibility-loss probes, or gravitationally mediated entanglement style tests.
 
 The hard requirements are severe:
@@ -96,9 +98,10 @@ The hard requirements are severe:
 - local energy and momentum accounting
 - no controllable faster-than-light signaling
 - a stable branch basis derived from records or environment, not chosen by convenience
+- ensemble-decomposition invariance unless records or causal selection justify branch conditioning
 - a prediction beyond the ensemble mean
 
-This path should not be allowed to borrow H6 or H6S1 as if classical-spacetime emergence or a source-response law were already solved. H6S1's value is that it makes the source-to-metric choice testable and rejects response rules that fail the guardrails.
+This path should not be allowed to borrow H6, H6S1, or H6S2 as if classical-spacetime emergence or a source-response law were already solved. H6S1 makes the source-to-metric choice testable; H6S2 rejects arbitrary ensemble-dependent branch response unless local records or causal support exist.
 
 ## Vacuum Residual Law Or Symmetry
 
@@ -123,9 +126,9 @@ This path has the largest conceptual prize, but it is the easiest to overclaim. 
 
 The simplest useful order is:
 
-1. Quantum source-response law successor, using the H6S1 diagnostic gates.
-2. Physical finite-loop scale.
-3. Vacuum residual law or symmetry.
+1. H6 successor work that builds on the completed H6S1 diagnostic and H6S2 ensemble-invariance gate.
+2. Physical finite-loop scale only if H6 predicts an invariant scale.
+3. Vacuum residual law or symmetry only if a concrete conserved functional is proposed.
 
 The reason is practical. The oriented loop phase path has already been sharpened into a diagnostic contract, spin/full-connection holonomy has been sharpened into a conservative recovery plus bounded diagnostic, and H6S1 has sharpened quantum source-response into executable weak-field gates. All three point at the same missing ingredient: a causal, conservation-respecting source-response law. Finite-loop and vacuum routes should wait unless the next proposal can distinguish physical response from estimator artifacts and fitted parameters.
 
@@ -144,8 +147,8 @@ If a path cannot pass this gate, it may still be useful as bookkeeping, but it s
 
 ## Current Recommendation
 
-The next frontier should be a quantum source-response law successor, not another bookkeeping-only H6 summary.
+The next frontier should build on H6S2, not rerun another bookkeeping-only H6 summary.
 
-It should start from the completed H6S1 diagnostic. Any proposed law must define a normalized response kernel, fix coefficients before external comparison, pass no-signaling and conservation checks, name branch-basis and environment assumptions, and produce a discriminator beyond the ensemble mean.
+It should start from the completed H6S1 diagnostic and H6S2 ensemble-invariance gate. Any proposed law must define a normalized response kernel, fix coefficients before external comparison, pass no-signaling and conservation checks, name branch-basis and environment assumptions, stay invariant under arbitrary ensemble decompositions unless records or causal selection justify branch conditioning, and produce a discriminator beyond the ensemble mean.
 
 Quantum source-response remains the most direct route to a testable difference because it asks how geometry responds to quantum pulse-history branches, rather than trying to infer that response indirectly from holonomy residuals. H6S1 makes the question executable; it does not answer it as new physics.

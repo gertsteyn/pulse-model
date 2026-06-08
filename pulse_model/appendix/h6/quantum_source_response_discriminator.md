@@ -154,7 +154,7 @@ $$
 p_b = 1 - p_a
 $$
 
-The branch labels are bookkeeping labels for records. They are not observables until tied to a source readout, environmental record, or branch-stable preparation protocol.
+Appendix note: H6S1 branch labels are bookkeeping labels. They are not physical response inputs unless derived from local records, environmental pointer states, or a declared preparation protocol.
 
 ### 7.1 Observed Or Declared Inputs
 
@@ -184,7 +184,13 @@ $$
 \Phi_b(P)=-\frac{GM}{\sqrt{(P-x_b)^2+\epsilon^2}}
 $$
 
-Here $\epsilon$ is the softening radius. With $\epsilon=0$, the denominator is $|P-x_a|$ or $|P-x_b|$.
+Here $\epsilon$ is the softening radius. With $\epsilon=0$, the branch-$a$ potential is:
+
+$$
+\Phi_a(P)=-\frac{GM}{|P-x_a|}
+$$
+
+The branch-$b$ denominator is likewise $|P-x_b|$.
 
 ### 7.2 Derived Quantities
 
@@ -297,7 +303,7 @@ Guardrail placeholders:
 - conservation status: expectation conserved
 - no-signaling status: not yet classified until the update rule under remote measurements is stated
 
-Classification for this family:
+Project-rule classification for this family:
 
 > known-physics reformulation
 
@@ -348,7 +354,7 @@ Guardrail placeholders:
 - conservation status: branchwise conserved if each branch source is conserved; otherwise inconsistent/rejected
 - no-signaling status: not yet classified until branch selection and source readout are causal
 
-Classification for this family:
+Family status:
 
 > bookkeeping/diagnostic target
 
@@ -394,7 +400,7 @@ Guardrail placeholders:
 - conservation status: conservation requires environment unless a branchwise conservation account is supplied
 - no-signaling status: not yet classified until remote-basis choices are shown not to alter the distant probe marginal
 
-Classification for this family:
+Family status:
 
 > blocked conditional bridge
 
@@ -436,10 +442,10 @@ Assumptions that cannot be hidden:
 
 Guardrail placeholders:
 
-- conservation status: not accepted until classified by the guardrail
+- conservation status: not accepted until assigned by the guardrail
 - no-signaling status: rejected unless the probe marginal is invariant under remote basis choice without a causal channel
 
-Classification for this family:
+Family status:
 
 > speculative constraint target
 
@@ -560,7 +566,7 @@ $$
 For a discrete energy-basis mixture with probabilities $q_j$ and energies $E_j$, this becomes:
 
 $$
-V_{ab}=\left|\sum_j q_j e^{-iE_j(\tau_a-\tau_b)/\hbar}\right|
+V_{ab}=\left|\sum_j q_j \exp(-i E_j(\tau_a - \tau_b) / \hbar)\right|
 $$
 
 Visibility loss is a clock-state overlap signal. It must be kept separate from environmental contrast loss and technical dephasing.
@@ -619,7 +625,7 @@ If $p_a\ne 1/2$ and $N_a\ne N_b$, this rule changes the distant probe marginal b
 
 The valid branch-mixture bookkeeping rule is different. It allows source and probe records to be compared after both records are inside a shared causal future, but it does not let a remote basis choice change the probe marginal at spacelike separation.
 
-### 10.2 Conservation Classification
+### 10.2 Conservation Status
 
 In the low-energy branch-local bridge, source data must be compatible with conservation:
 
@@ -644,9 +650,9 @@ This section does not solve conservation for collapse or pulse-native variants. 
 A candidate response rule may be used downstream only if it supplies:
 
 - a normalized probe marginal distribution
-- a no-signaling classification
-- a conservation classification
-- any causal channel or environment ledger needed for those classifications
+- a no-signaling status
+- a conservation status
+- any causal channel or environment ledger needed for those statuses
 - the source of every coefficient or regulator
 
 If any item is missing, the rule remains a diagnostic target or blocked conditional bridge.
@@ -655,7 +661,7 @@ If any item is missing, the rule remains a diagnostic target or blocked conditio
 
 This section names experimental or phenomenological observable classes. It records no current numerical bounds, dates, or experiment-status claims. Therefore no external numerical sourcing is used here. Any later task that records exact bounds or dates must verify them against current primary or review sources.
 
-| Observable class | Observable | Model-family expectation | Required control variables | Artifact ledger | Current work supplies | Result classification |
+| Observable class | Observable | Model-family expectation | Required control variables | Artifact ledger | Current work supplies | Result status |
 |---|---|---|---|---|---|---|
 | Source superpositions | Probe pulse-count mean and variance for a source prepared in two location branches. | Expectation-sourced response and branch mixture share the weak-field mean; branch mixture adds $p_a p_b(N_a-N_b)^2$ before noise. | Source branch probabilities, source/probe separation, source mass, probe duration, clock frequency, softening or finite-size model, readout noise. | Source preparation spread, finite source size, vibration, electromagnetic coupling, thermal drift, background gravitational gradients. | Calculation in `quantum_source_response.py`. | useful diagnostic |
 | Quantum clocks | Internal clock visibility tied to $\tau_a-\tau_b$. | Branch-conditioned response can reduce internal clock visibility through the H5 overlap formula; expectation-sourced response gives one effective probe time unless another branch degree of freedom is modeled. | Clock transition frequency or energy distribution, coherence time, branch proper-time difference, internal-state preparation, environmental contrast factors. | Ordinary dephasing, laser phase noise, trap shifts, blackbody shifts, collisions, finite readout contrast. | Calculation through branch visibility helpers using H5 formulas. | useful diagnostic |
@@ -670,12 +676,12 @@ The immediate experimentally meaningful observable classes are therefore varianc
 
 This review decides what survives after the most likely overclaims are removed.
 
-| Check | Failure mode | H6S1 result | Surviving claim label |
+| Check | Failure mode | H6S1 result | Surviving status |
 |---|---|---|---|
 | Ensemble-mean degeneracy | Treating $N_{\mathrm{exp}}=\langle N_C\rangle_{\mathrm{mix}}$ as a discriminator. | Rejected. The mean equality is a degeneracy check, not a signal. | artifact |
 | Gauge or branch-matching artifact | Comparing branch potentials at coordinate locations that do not identify the same relational probe record. | The schema requires one shared relational probe location and matching data; arbitrary branch metric comparison remains blocked. | blocked conditional bridge |
 | Chosen branch basis | Choosing source localization branches for convenience and treating them as fundamental. | H6S1 uses branch labels only as controlled preparation records; a stable branch basis remains an assumption or environment-derived input. | useful diagnostic |
-| Hidden collapse postulate | Reading branch-mixture outputs as proof that one branch physically collapses before the probe record. | Rejected. Collapse/decoherence variants are only classified unless they provide timing, probability, conservation, and no-signaling rules. | blocked conditional bridge |
+| Hidden collapse postulate | Reading branch-mixture outputs as proof that one branch physically collapses before the probe record. | Rejected. Collapse/decoherence variants remain status-labeled only unless they provide timing, probability, conservation, and no-signaling rules. | blocked conditional bridge |
 | Decoherence double-counting | Counting environmental visibility loss and metric-history visibility loss as the same effect. | The observable matrix and schema require separate environmental, technical, and branch-response ledgers. | useful diagnostic |
 | Remote-basis signaling | Allowing a remote source measurement basis to change the spacelike probe marginal. | The invalid toy rule is rejected by code and by the guardrail contract. | clean no-go |
 | Conservation failure | Letting a selected source metric change without energy and momentum accounting. | Branch-specific response is allowed only branchwise; collapse variants require an environment or collapse-sector ledger. | blocked conditional bridge |
@@ -687,7 +693,7 @@ This review decides what survives after the most likely overclaims are removed.
 
 The claims that survive are:
 
-| Surviving claim | Evidence | Label |
+| Surviving claim | Evidence | Status |
 |---|---|---|
 | Linear weak-field mean degeneracy is explicit and executable. | Appendix derivation and `source_response_discriminator` tests. | known-physics reformulation |
 | Branch-mixture variance, branch separation, source-probe covariance, and visibility are valid discriminator channels in the toy arena. | Appendix formulas and focused unit tests. | useful diagnostic |

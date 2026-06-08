@@ -46,7 +46,7 @@ The project also has useful bounded diagnostics:
 - H4 recovers stress-energy as matter phase-response for standard matter models.
 - The geometry-action work builds conditional and diagnostic bridges toward Einstein-Hilbert-style geometry, but does not derive it from arbitrary pulse counts.
 - H5 handles conservative quantum-clock visibility and superposed pulse-history bookkeeping.
-- H6 and H6S1 compare possible quantum source-response families, but do not yet supply the response law.
+- H6, H6S1, and H6S2 compare possible quantum source-response families and now include an ensemble-decomposition-invariance gate, but do not yet supply the response law.
 - H7 reframes vacuum phase-response conservatively, but does not solve the cosmological constant problem.
 
 The proof order and current gate status are tracked in the [roadmap](./roadmap.md).
@@ -78,9 +78,11 @@ Until at least one blocker is resolved, the model remains conservative and diagn
 
 ## Closest Path To Novelty
 
-The closest path is a successor to H6S1:
+The closest path is the H6 successor sequence after H6S2:
 
-> Define a quantum source-response law that passes the H6S1 gates and predicts something beyond the ensemble mean.
+> Define a quantum source-response law that passes the H6S1/H6S2 gates and predicts something beyond the ensemble mean.
+
+H6S2 strengthens H6S1 by adding ensemble-decomposition invariance. It shows that branch-mixture response is not admissible merely because a branch decomposition can be written down. Branch-conditioned variance becomes valid only with local pointer records, a causal selection rule, or comparison in a shared causal future. The pulse-native law remains open.
 
 That law must:
 
@@ -89,6 +91,7 @@ That law must:
 - respect local conservation
 - avoid controllable faster-than-light signaling
 - state its branch-basis and environment assumptions
+- stay invariant under arbitrary ensemble decompositions unless physical records or causal selection justify branch conditioning
 - produce a discriminator such as variance, bimodality, branch-correlation, visibility loss, or probe timing
 
 The frontier paths are tracked in the [frontier strategy](./frontier_strategy.md).
