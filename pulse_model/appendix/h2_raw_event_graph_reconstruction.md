@@ -842,7 +842,7 @@ The rank report must attach these labels when applicable:
 
 - `insufficient-clocks`: fewer than the claimed embedding dimension requires, or no reference clock exists
 - `missing-meetings`: clocks cannot be event-aligned where a future embedding claim explicitly requires alignment
-- `missing-reciprocal-signals`: only one-way links exist where the relative separation or clock offset needs a two-way check
+- `missing-reciprocal-signals`: at least one directed clock pair is one-way where the relative separation or clock offset needs a two-way check
 - `disconnected-component`: rank is reported per component and no cross-component geometry is claimed
 - `calibration-ambiguity`: clock rate or global scale is chosen by convention rather than observed calibration
 - `mirror-boost-ambiguity`: orientation or boost remains after the stated gauge convention
@@ -1043,7 +1043,7 @@ Every finite result must report applicable labels from this list:
 - `disconnected-component`: a component is not linked to the rest of the graph
 - `insufficient-clocks`: too few clock chains exist for the claimed embedding
 - `missing-meetings`: clock chains lack coincidence records needed to align them
-- `missing-reciprocal-signals`: signal links are one-way where two-way constraints are required
+- `missing-reciprocal-signals`: at least one signal pair is one-way where two-way constraints are required
 - `calibration-ambiguity`: clock-rate or scale freedom remains unresolved
 - `mirror-boost-ambiguity`: the synthetic embedding is recoverable only up to orientation and boost
 - `rank-deficient`: the linearized constraint system has a non-gauge nullspace

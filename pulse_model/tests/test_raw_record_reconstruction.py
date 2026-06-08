@@ -185,6 +185,28 @@ class RawRecordReconstructionTests(unittest.TestCase):
         self.assertEqual(reconstruction.event_coordinates, ())
         self.assertEqual(reconstruction.null_signal_residuals, ())
 
+    def test_missing_reciprocal_signal_is_pairwise_not_record_global(self) -> None:
+        record = RawEventRecord(
+            clocks=(RawClock("A", 1.0), RawClock("B", 1.0), RawClock("C", 1.0)),
+            events=(
+                RawClockEvent("A:0", "A", 0, 0.0),
+                RawClockEvent("A:2", "A", 1, 2.0),
+                RawClockEvent("B:1", "B", 0, 1.0),
+                RawClockEvent("C:2", "C", 0, 2.0),
+            ),
+            signals=(
+                RawSignalLink("s-ab", "A", "A:0", 0.0, "B", "B:1", 1.0),
+                RawSignalLink("s-ba", "B", "B:1", 1.0, "A", "A:2", 2.0),
+                RawSignalLink("s-bc", "B", "B:1", 1.0, "C", "C:2", 2.0),
+            ),
+        )
+
+        reconstruction = reconstruct_raw_event_graph(record, reference_clock_id="A")
+
+        self.assertIn("missing-reciprocal-signals", reconstruction.degeneracy_labels)
+        self.assertIn("rank-deficient", reconstruction.degeneracy_labels)
+        self.assertIn("valid", reconstruction.degeneracy_labels)
+
     def test_partial_order_cycle_is_rejected_as_inconsistent_record(self) -> None:
         record = RawEventRecord(
             clocks=(RawClock("A", 1.0), RawClock("B", 1.0)),

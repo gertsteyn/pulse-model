@@ -476,7 +476,7 @@ def reconstruct_raw_event_graph(
         labels.add("mirror-boost-ambiguity")
     if partial_order.component_count > 1:
         labels.add("disconnected-component")
-    if record.signals and not _has_reciprocal_signal(record):
+    if _has_one_way_signal_pair(record):
         labels.add("missing-reciprocal-signals")
     if any(clock.calibration_status != "calibrated" for clock in record.clocks):
         labels.add("calibration-ambiguity")
@@ -837,9 +837,9 @@ def _component_count(
     return count
 
 
-def _has_reciprocal_signal(record: RawEventRecord) -> bool:
+def _has_one_way_signal_pair(record: RawEventRecord) -> bool:
     pairs = {(signal.emitter_clock_id, signal.receiver_clock_id) for signal in record.signals}
-    return any((right, left) in pairs for left, right in pairs)
+    return any((right, left) not in pairs for left, right in pairs)
 
 
 def _clock_map(record: RawEventRecord) -> Mapping[str, RawClock]:
