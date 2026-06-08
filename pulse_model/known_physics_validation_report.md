@@ -6,6 +6,8 @@ sidebar_position: 4
 
 # Known-Physics Validation Report
 
+**Canonical evidence page:** This compatibility path is preserved for older links. The canonical report is now [Known-physics validation](./evidence/known_physics_validation.md).
+
 **Issues:** `sci-b8v.2`, `sci-b8v.8`, `sci-4be`, `sci-b8v.9`  
 **Date:** June 7, 2026  
 **Gate:** `00 Known-physics recovery ladder`
@@ -38,8 +40,8 @@ This acceptance is not an exhaustive claim about every GR solution or matter mod
 
 Derivations:
 
-- [The formal Pulse Model](./pulse_model_formalization.md), especially sections 5, 5.15, and 14.
-- [The proof roadmap](./proof_sequence.md), especially Step 0 and the progress ledger.
+- [Known-physics recovery](./formal_model/known_physics_recovery.md), especially the recovered-physics section and validation ladder links.
+- [The roadmap](./roadmap.md), especially Step 0 and the progress ledger.
 - [H4 stress-energy as phase-response](./appendix/h4_stress_energy_as_phase_response.md), covering scalar, electromagnetic, point-particle, and conservation evidence.
 
 Code:

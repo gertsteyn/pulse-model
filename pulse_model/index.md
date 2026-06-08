@@ -16,6 +16,10 @@ An atomic clock, for example, does not sense a cosmic tick. It counts an extreme
 
 The Pulse Model asks whether these facts are pointing to one deeper picture.
 
+Current status in one sentence:
+
+> The Pulse Model is a validated conservative reformulation and diagnostic framework, but it has not yet produced accepted new physics.
+
 ## The Goal
 
 The goal is to find out whether spacetime can be understood as the rule system that keeps local clock counts and quantum phase histories consistent with each other.
@@ -107,14 +111,15 @@ It does not claim there is one universal clock ticking underneath the universe. 
 
 ## Where To Read Next
 
-Start here for orientation, then use the two core documents:
+Start here for orientation, then follow the project in layers:
 
-- [The formal Pulse Model](./pulse_model_formalization.md) gives the mathematical definitions, known-physics recovery, hypotheses, and references.
-- [The proof roadmap](./proof_sequence.md) explains the order of work, current progress, and acceptance gates.
-- [The known-physics validation report](./known_physics_validation_report.md) states what the conservative first slice currently accepts and what remains open.
-- [Promising tweaks toward new physics](./promising_tweaks.md) records the frontier paths that could turn the current diagnostics into derivations, predictions, or clean no-go results.
+- [Current status](./current_status.md) gives the shortest honest summary of what is solid, what is diagnostic, and what is still blocked.
+- [Roadmap](./roadmap.md) explains the order of work, current progress, and acceptance gates.
+- [Frontier strategy](./frontier_strategy.md) records the paths that could turn the current diagnostics into derivations, predictions, or clean no-go results.
+- [Formal Model](./formal_model/index.md) gives the mathematical definitions, known-physics recovery, hypotheses, and references.
+- [Evidence](./evidence/index.md) collects validation reports, acceptance reports, verification commands, and appendix verdicts.
 
-The appendices hold focused proofs and formal targets for individual hypotheses.
+The [appendix index](./appendix/index.md) links to focused proofs, diagnostics, and formal targets for individual hypotheses.
 
 The guiding rule is simple:
 

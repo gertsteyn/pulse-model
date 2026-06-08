@@ -1,4 +1,14 @@
+---
+title: H1 Time Is Relational Pulse Count
+sidebar_label: H1 Time
+sidebar_position: 2
+---
+
 # Appendix: Hypothesis H1 - Time Is Relational Pulse Count
+
+**Parent hypothesis:** 6.1 Hypothesis H1: Time is relational pulse count  
+**Status:** Accepted with limits for the conservative single-clock, single-time theorem  
+**Purpose:** Prove the bounded claim that ordinary single-time predictions can be rewritten as conditional predictions against an ideal physical pulse counter, while keeping stronger relational-time claims out of scope.
 
 ## Purpose
 
@@ -904,7 +914,7 @@ This is enough to use H1 as a conservative starting point for later pulse-record
 Written derivations and formal targets:
 
 - This appendix, especially the conservative H1 theorem, clock-choice corollary, relativistic consistency corollary, simple resolution-smearing model, and sequential/multi-time extension target.
-- `pulse_model/proof_sequence.md`, Step 1, which records H1's current proof status and downstream boundary.
+- `pulse_model/roadmap.md`, Step 1, which records H1's current proof status and downstream boundary.
 
 Executable artifacts:
 

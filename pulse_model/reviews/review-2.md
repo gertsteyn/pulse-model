@@ -2,6 +2,8 @@ I reviewed the published docs and GitHub-visible source structure. I did not ind
 
 ## Verdict
 
+**Path note:** This review preserves the document and URL paths that existed when it was written. The restructure keeps those old paths as compatibility routes and points canonical readers to `roadmap.md`, `frontier_strategy.md`, `formal_model/`, `evidence/`, and grouped appendix folders.
+
 It is **not a dead end**.
 
 My classification is:

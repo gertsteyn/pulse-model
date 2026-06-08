@@ -1,3 +1,9 @@
+---
+title: H5 Superposed Pulse Histories
+sidebar_label: H5 Superposed Histories
+sidebar_position: 6
+---
+
 # Appendix: H5 Superposed Pulse Histories
 
 **Parent hypothesis:** 6.5 Hypothesis H5: Quantum objects can carry superposed pulse histories  

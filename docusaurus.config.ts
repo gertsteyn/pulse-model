@@ -17,6 +17,7 @@ type ResearchSite = {
 
 type SidebarItem = {
   type?: string;
+  id?: string;
   label?: string;
   items?: SidebarItem[];
 };
@@ -178,14 +179,28 @@ async function rootDocsFirstSidebarItemsGenerator(args: SidebarGeneratorArgs): P
 
 function normalizeSidebarItems(items: SidebarItem[]): SidebarItem[] {
   return items.flatMap((item) => {
-    if (item.type !== 'category') {
+    const label = item.label || '';
+    const normalizedLabel = label.toLowerCase();
+
+    if (item.type === 'doc') {
+      const id = item.id || '';
+      if (
+        hiddenDocIds.has(id) ||
+        id.startsWith('appendix/geometry_action_') ||
+        id.startsWith('appendix/geometry_phase_functional_') ||
+        id.startsWith('appendix/h2_') ||
+        id.startsWith('appendix/h6_') ||
+        normalizedLabel.includes('compatibility') ||
+        normalizedLabel === 'migration map'
+      ) {
+        return [];
+      }
+
       return [item];
     }
 
-    const label = item.label || '';
-    const normalizedLabel = label.toLowerCase();
-    if (normalizedLabel === 'reviews') {
-      return [];
+    if (item.type !== 'category') {
+      return [item];
     }
 
     return [
@@ -201,6 +216,15 @@ function normalizeSidebarItems(items: SidebarItem[]): SidebarItem[] {
 const researchSites = discoverResearchSites();
 const {origin: siteUrl, baseUrl} = parseUrl(siteUrlEnv);
 const showLastUpdateTime = hasGitCommits();
+
+const hiddenDocIds = new Set([
+  'documentation_migration_map',
+  'h2_acceptance_report',
+  'known_physics_validation_report',
+  'proof_sequence',
+  'promising_tweaks',
+  'pulse_model_formalization',
+]);
 
 const config: Config = {
   title: 'Science Research',

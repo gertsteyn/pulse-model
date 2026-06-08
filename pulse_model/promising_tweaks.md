@@ -6,6 +6,8 @@ sidebar_position: 5
 
 # Promising Tweaks Toward New Physics
 
+**Canonical page:** This compatibility path is preserved for older links. The canonical reader-facing strategy page is now [Frontier Strategy](./frontier_strategy.md).
+
 This document records the most promising ways the Pulse Model could be modified or sharpened so that it might lead to something genuinely new.
 
 These are not accepted results. They are frontier paths. Each path must preserve the conservative work already completed: known physics first, no hidden preferred frame, no fitted-after-the-fact coefficients, and no claim of new physics without a falsifiable observable.

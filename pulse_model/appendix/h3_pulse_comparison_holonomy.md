@@ -1,3 +1,9 @@
+---
+title: H3 Pulse-Comparison Holonomy
+sidebar_label: H3 Curvature Holonomy
+sidebar_position: 4
+---
+
 # Appendix: H3 Pulse-Comparison Loop Observable
 
 **Parent hypothesis:** 6.3 Hypothesis H3: Curvature is pulse-comparison holonomy  

@@ -6,6 +6,8 @@ sidebar_position: 5
 
 # H2 Acceptance Report
 
+**Canonical evidence page:** This compatibility path is preserved for older links. The canonical report is now [H2 metric reconstruction acceptance](./evidence/acceptance_reports/h2_metric_reconstruction.md).
+
 **Issue:** `sci-dug.3`  
 **Date:** June 7, 2026  
 **Gate:** `02 H2 metric reconstruction from pulse comparisons`
@@ -33,11 +35,11 @@ Not accepted:
 
 Proof and schema:
 
-- [H2 fixed-event theorem](./appendix/h2_metric_reconstruction_from_pulse_comparisons.md)
-- [H2 finite pulse-record schema](./appendix/h2_finite_pulse_record_schema.md)
-- [H2 finite-data stability and gauge conditions](./appendix/h2_finite_data_stability_and_gauge.md)
-- [H2 raw relational identifiability](./appendix/h2_raw_relational_identifiability.md)
-- [Proof sequence](./proof_sequence.md)
+- [H2 fixed-event theorem](./appendix/h2/metric_reconstruction_from_pulse_comparisons.md)
+- [H2 finite pulse-record schema](./appendix/h2/finite_pulse_record_schema.md)
+- [H2 finite-data stability and gauge conditions](./appendix/h2/finite_data_stability_and_gauge.md)
+- [H2 raw relational identifiability](./appendix/h2/raw_relational_identifiability.md)
+- [Roadmap](./roadmap.md)
 
 Code:
 

@@ -1,3 +1,9 @@
+---
+title: H4 Stress-Energy As Phase-Response
+sidebar_label: H4 Stress-Energy
+sidebar_position: 5
+---
+
 # Appendix: H4 Stress-Energy As Phase-Response
 
 **Parent hypothesis:** 6.4 Hypothesis H4: Stress-energy is phase-response density  

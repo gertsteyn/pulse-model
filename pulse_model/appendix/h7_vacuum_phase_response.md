@@ -1,3 +1,9 @@
+---
+title: H7 Vacuum Phase-Response
+sidebar_label: H7 Vacuum Response
+sidebar_position: 8
+---
+
 # Appendix: H7 Vacuum Phase-Response
 
 **Parent hypothesis:** 8. Hypothesis H7: Vacuum energy as phase-response  
@@ -27,8 +33,8 @@ H7 is downstream of H4, 05, 05S, and H6. Each input is allowed only within its c
 | Input | What H7 may use | What H7 must not infer |
 |---|---|---|
 | [H4 matter phase-response](./h4_stress_energy_as_phase_response.md) | The standard inverse-metric variation convention for stress-energy, rewritten as matter phase-response. | H4 did not cover renormalized vacuum stress-energy, anomalies, spinors, fluids, or nonminimal quantum matter as accepted results. |
-| [05 geometry-action result](./geometry_phase_functional_from_pulse_consistency.md) | A conditional smooth, low-energy Einstein-Hilbert plus cosmological-constant phase under explicit locality, scalarization, metric-only, boundary, and second-order assumptions. | 05 did not derive $G$, derive $\Lambda$, solve vacuum-energy renormalization, or prove that absolute vacuum phase is nongravitating. |
-| [05S geometry-action strengthening](./geometry_action_strengthening_pulse_network.md) | Stronger conditional support for the same low-energy source-to-metric bridge when admissibility, locality, hinge-defect, scalarization, replacement-invariance, boundary, and correction-suppression assumptions are carried. | 05S did not prove arbitrary pulse records dynamically enforce those assumptions and did not solve the cosmological-constant problem. |
+| [05 geometry-action result](./geometry_action/phase_functional_from_pulse_consistency.md) | A conditional smooth, low-energy Einstein-Hilbert plus cosmological-constant phase under explicit locality, scalarization, metric-only, boundary, and second-order assumptions. | 05 did not derive $G$, derive $\Lambda$, solve vacuum-energy renormalization, or prove that absolute vacuum phase is nongravitating. |
+| [05S geometry-action strengthening](./geometry_action/pulse_network_strengthening.md) | Stronger conditional support for the same low-energy source-to-metric bridge when admissibility, locality, hinge-defect, scalarization, replacement-invariance, boundary, and correction-suppression assumptions are carried. | 05S did not prove arbitrary pulse records dynamically enforce those assumptions and did not solve the cosmological-constant problem. |
 | [H6 decohered histories](./h6_decohered_pulse_histories_classical_spacetime.md) | A warning that source-to-metric rules, branch selection, energy accounting, no-signaling, and classical metric emergence must remain explicit. | H6 did not establish a full metric Hilbert space, branch-selection law, no-signaling metric update rule, or macroscopic emergence theorem. |
 
 The H4 phase-response identity remains the matter-side convention:

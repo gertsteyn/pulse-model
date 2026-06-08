@@ -1,5 +1,7 @@
 # The Pulse Model
 
+**Canonical reference section:** This compatibility/full-source page is preserved for older links and for no-loss auditing. The reader-facing formal reference is now [Formal Model](./formal_model/index.md).
+
 **Version:** 0.2  
 **Status:** Working formalization / research program  
 **Purpose:** Provide a rigorous shared document for exploring whether a pulse/phase view of time can help bridge conceptual and mathematical gaps between general relativity (GR) and quantum mechanics (QM).
@@ -1194,7 +1196,7 @@ theorem, partially accepted for restricted finite-data prototype slices, and
 conditional for raw-relational event and signal identifiability. It is not
 accepted for arbitrary sparse-record metric reconstruction or automatic metric
 reconstruction from raw relational pulse records. See
-`h2_acceptance_report.md` for the gate decision.
+`evidence/acceptance_reports/h2_metric_reconstruction.md` for the gate decision.
 
 ---
 
@@ -2414,11 +2416,11 @@ These are not exhaustive. They are starting anchors for agents.
 
 ## 20. Immediate next actions
 
-For the formal proof order, dependency gates, progress status vocabulary, and current queue, use `proof_sequence.md` as the source of truth.
+For the formal proof order, dependency gates, progress status vocabulary, and current queue, use `roadmap.md` as the source of truth.
 
 The current next work is no longer the original agent-order sketch. H1 through H7 and the known-physics recovery ladder now have accepted-with-limits artifacts, so downstream work should start from the proof ledger rather than this early planning list.
 
-At the current gate, H7 should be used only in its accepted constrained sense: it separates absolute bookkeeping phase from covariant renormalized response, but it does not derive $\Lambda$, solve vacuum-energy naturalness, or predict dark-energy evolution. New downstream work should follow `proof_sequence.md`, preserving the caveats attached to 05, 05S, H6, and H7.
+At the current gate, H7 should be used only in its accepted constrained sense: it separates absolute bookkeeping phase from covariant renormalized response, but it does not derive $\Lambda$, solve vacuum-energy naturalness, or predict dark-energy evolution. New downstream work should follow `roadmap.md`, preserving the caveats attached to 05, 05S, H6, and H7.
 
 ---
 
