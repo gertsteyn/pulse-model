@@ -18,7 +18,7 @@ The Pulse Model asks whether these facts are pointing to one deeper picture.
 
 Current status in one sentence:
 
-> The Pulse Model is a validated conservative reformulation and diagnostic framework, but it has not yet produced accepted new physics.
+> The Pulse Model is a validated conservative reformulation and diagnostic framework, but it has not produced accepted new physics.
 
 ## The Goal
 
@@ -31,7 +31,7 @@ In plain terms:
 - gravity changes how clocks and phases compare between paths
 - spacetime geometry may be the structure that makes all those comparisons fit together
 
-This is not being treated as an established new theory. It is a research program. The model must earn every step by reproducing known physics first, then by making useful derivations, tools, or predictions.
+This is not being treated as an established new theory. It is a research program. The model must earn every step by reproducing known physics first, then by making useful derivations, tools, or clean failure reports.
 
 ## Why This Matters
 
@@ -115,7 +115,8 @@ Start here for orientation, then follow the project in layers:
 
 - [Current status](./current_status.md) gives the shortest honest summary of what is solid, what is diagnostic, and what is still blocked.
 - [Roadmap](./roadmap.md) explains the order of work, current progress, and acceptance gates.
-- [Frontier strategy](./frontier_strategy.md) records the paths that could turn the current diagnostics into derivations, predictions, or clean no-go results.
+- [Final H6 assessment](./reviews/final_h6_assessment.md) records why the source-response search is archived as diagnostic.
+- [Frontier strategy](./frontier_strategy.md) records the archive decision and the conditions required before any future novelty path should reopen.
 - [Formal Model](./formal_model/index.md) gives the mathematical definitions, known-physics recovery, hypotheses, and references.
 - [Evidence](./evidence/index.md) collects validation reports, acceptance reports, verification commands, and appendix verdicts.
 

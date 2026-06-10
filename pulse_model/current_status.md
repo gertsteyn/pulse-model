@@ -6,9 +6,9 @@ sidebar_position: 2
 
 # Current Status
 
-The Pulse Model is **not yet accepted new physics**.
+The Pulse Model is **not accepted new physics**.
 
-It is currently a structured research program with a strong conservative layer, useful diagnostics, and one clear frontier: finding a causal, conservation-respecting quantum source-response route that is more than a diagnostic comparator.
+It is currently a structured research project with a strong conservative layer and useful diagnostics. The internal H6 source-response search has reached a clean stopping point: H6P1 supplied the best Pulse-native diagnostic object, but no conserved response law or baseline-distinct prediction survived.
 
 ## Project Verdict
 
@@ -18,7 +18,7 @@ The strongest honest status is:
 
 > The Pulse Model is a validated conservative reformulation and diagnostic framework. It has not yet produced an accepted new physical law or new prediction.
 
-That is still useful. It means the project has a disciplined base from which a real novelty attempt can be made without pretending the speculative parts are already solved.
+That is still useful. It means the project is a presentable map of what pulse, phase, and proper-time language can reproduce, what it can diagnose, and where the attempted source-response routes fail.
 
 ## What Is Solid
 
@@ -46,7 +46,7 @@ The project also has useful bounded diagnostics:
 - H4 recovers stress-energy as matter phase-response for standard matter models.
 - The geometry-action work builds conditional and diagnostic bridges toward Einstein-Hilbert-style geometry, but does not derive it from arbitrary pulse counts.
 - H5 handles conservative quantum-clock visibility and superposed pulse-history bookkeeping.
-- H6, H6S1, H6S2, H6S3, H6S4-C, and H6S4-Q compare possible quantum source-response families and now include ensemble-invariance, no-free-branch-variance, finite stochastic pulse-potential diagnostics, and a finite quantum mediator conditional derivation, but do not yet supply the response law.
+- H6, H6S1, H6S2, H6S3, H6S4-C, H6S4-Q, and H6P1 compare possible quantum source-response families and now include ensemble-invariance, no-free-branch-variance, finite stochastic pulse-potential diagnostics, a finite quantum mediator conditional derivation, and a finite closed-loop pulse/phase closure-response diagnostic. They do not supply a source-response law.
 - H7 reframes vacuum phase-response conservatively, but does not solve the cosmological constant problem.
 
 The proof order and current gate status are tracked in the [roadmap](./roadmap.md).
@@ -64,37 +64,45 @@ The project does not yet claim that:
 
 These boundaries are deliberate. They keep the model useful even when a speculative path fails.
 
-## Current Blockers
+## Final Blockers
 
-The main blockers are:
+The source-response attempt is blocked by missing structure that the current model does not provide:
 
 - a general conserved source-response law for how geometry responds to quantum pulse-history branches
 - a derived or measured coefficient connecting oriented pulse-loop phase to geometric action
+- a continuum intrinsic closure covariance law for closed pulse/phase record defects
+- a fixed observable distinct from stochastic semiclassical and quantum mediator baselines
 - a proof that any finite-loop scale is physical rather than only estimator resolution
 - gauge-invariant comparison of quantum branches with local energy and momentum accounting
 - a vacuum residual law or symmetry that predicts something instead of renaming the cosmological constant
 
-Until at least one blocker is resolved, the model remains conservative and diagnostic.
+Until a genuinely new external principle resolves those blockers, the model should be treated as conservative and diagnostic.
 
-## Closest Path To Novelty
+## Archive Decision
 
-The closest path remains the H6 successor sequence after H6S4-C and H6S4-Q:
+H6P1 was the final internal attempt to make a Pulse-native source-response principle appear. It used closed pulse/phase loop defects:
 
-> Turn a source-response diagnostic into a conserved law, or prove that the remaining H6S4 routes fail.
+$$
+\Delta_L = \sum_e s_{Le}\theta_e
+$$
 
-H6S2 strengthens H6S1 by adding ensemble-decomposition invariance. H6S3 then proves the no-free-branch-variance theorem and adds a route ledger: density-only response gives no free branch variance; pointer-record or collapse-selection response needs records and conservation accounting; stochastic classical pulse geometry needs an objective causal noise law and ledgers; non-classical geometry or a mediator needs a scoped sector and recovery limit. H6S4-C tested the stochastic classical route as a finite spectral-potential response and ended as a diagnostic tool: it gives a fixed variance comparator, but not a general conserved stochastic source-response law distinct from known stochastic semiclassical gravity. H6S4-Q tested the non-classical mediator route and ended as a conditional derivation: it recovers ordinary finite quantum mediator structure in Pulse Model record language, but not a pulse-native quantum geometry law or a fixed observable distinct from standard quantum mediator baselines.
+and the intrinsic closure functional:
 
-That law must:
+$$
+I[g,\rho,R] = \frac{1}{2}\sum_{LL'}\Delta_L C^{-1}_{LL'}\Delta_{L'}
+$$
 
-- use a normalized response kernel
-- fix or measure coefficients before comparison with data
-- respect local conservation
-- avoid controllable faster-than-light signaling
-- state its branch-basis and environment assumptions
-- stay invariant under arbitrary ensemble decompositions unless physical records or causal selection justify branch conditioning
-- produce a discriminator such as variance, bimodality, branch-correlation, visibility loss, or probe timing
+The finite response analogue:
 
-The frontier paths are tracked in the [frontier strategy](./frontier_strategy.md).
+$$
+J_a = -\hbar\frac{dI}{dg_a}
+$$
+
+is useful as a diagnostic, but it is not a stress-energy tensor, not a conserved source law, and not a new gravitational equation.
+
+The project should therefore be preserved as a conservative reformulation and diagnostic framework. It should not be presented as an active path to GR/QM unification unless a new external principle supplies a conserved, coefficient-fixed, baseline-distinct response law.
+
+The final H6 assessment is recorded in [Final H6 Assessment](./reviews/final_h6_assessment.md). The high-level frontier posture is recorded in [Frontier Strategy](./frontier_strategy.md).
 
 ## How To Read The Project
 
@@ -103,10 +111,11 @@ For a quick understanding, read in this order:
 1. [Overview](./index.md)
 2. [Current status](./current_status.md)
 3. [Roadmap](./roadmap.md)
-4. [Frontier strategy](./frontier_strategy.md)
-5. [Formal Model](./formal_model/index.md)
-6. [Evidence](./evidence/index.md)
-7. [H2 metric reconstruction acceptance](./evidence/acceptance_reports/h2_metric_reconstruction.md)
-8. Focused appendices under [Appendix](./appendix/index.md)
+4. [Final H6 assessment](./reviews/final_h6_assessment.md)
+5. [Frontier strategy](./frontier_strategy.md)
+6. [Formal Model](./formal_model/index.md)
+7. [Evidence](./evidence/index.md)
+8. [H2 metric reconstruction acceptance](./evidence/acceptance_reports/h2_metric_reconstruction.md)
+9. Focused appendices under [Appendix](./appendix/index.md)
 
 The appendices are where the technical proofs, diagnostics, and acceptance reports live. The top-level pages should tell you where the project stands without making you read every derivation.
